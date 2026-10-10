@@ -1,109 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore Vero Seoul, an Italian gourmet concept for Korea: six pantry products and three gift boxes. Partner preview only; no real purchases." />
-  <meta name="theme-color" content="#243126" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Vero Seoul, an Italian gourmet concept for Korea: six pantry products and three gift boxes. Partner preview only; no real purchases.">
+  <meta name="theme-color" content="#243126">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vero Seoul">
+  <meta property="og:title" content="Vero Seoul — Italian gourmet concept | Partner preview">
+  <meta property="og:description" content="Explore Vero Seoul, an Italian gourmet concept for Korea: six pantry products and three gift boxes. Partner preview only; no real purchases.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vero Seoul — Italian gourmet concept | Partner preview">
+  <meta name="twitter:description" content="Explore Vero Seoul, an Italian gourmet concept for Korea: six pantry products and three gift boxes. Partner preview only; no real purchases.">
   <title>Vero Seoul — Italian gourmet concept | Partner preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23243126%22/><path d=%22M18 17h9l5 23 5-23h9L37 49H27z%22 fill=%22%23efe8d9%22/></svg>">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="preview.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23243126'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia' font-size='46' fill='%23f3eee3'%3EV%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#top">Skip to content · 본문 바로가기</a>
-  <div class="announcement" data-i18n="announcement">Complimentary Seoul delivery on orders over ₩70,000</div>
-  <header>
-    <a class="brand" href="#top" aria-label="Vero Seoul home"><span>VERO</span><small>SEOUL</small></a>
-    <nav aria-label="Primary navigation">
-      <a href="#boxes" data-i18n="navBoxes">Gift boxes</a>
-      <a href="#pantry" data-i18n="navPantry">The pantry</a>
-      <a href="#story" data-i18n="navStory">Our story</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="announcement"><span class="status-dot" aria-hidden="true"></span><span data-i18n="announcement">An Italian idea for Seoul · Partner preview</span></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Vero Seoul home" data-i18n-aria="home"><span>VERO<span class="brand-dot">.</span></span><small>SEOUL</small></a>
+    <nav id="mainNav" aria-label="Main navigation" data-i18n-aria="navigation">
+      <a href="#boxes" data-i18n="navBoxes">Gift boxes</a><a href="#pantry" data-i18n="navPantry">The pantry</a><a href="#ritual" data-i18n="navRitual">The ritual</a><a href="#story" data-i18n="navStory">Our story</a>
     </nav>
     <div class="header-actions">
-      <button id="langBtn" class="text-btn" aria-label="Change language">한국어</button>
-      <button id="cartBtn" class="cart-btn" aria-label="Open cart"><span data-i18n="cart">Bag</span> <b id="cartCount">0</b></button>
+      <button disabled id="langBtn" class="text-btn" lang="ko" aria-label="Switch to Korean">한국어</button>
+      <button disabled id="cartBtn" class="bag-btn" aria-label="Open demo bag" data-i18n-aria="openBag" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg><span class="bag-label" data-i18n="cart">Bag</span><span id="cartCount">0</span></button>
+      <button disabled id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="mainNav"><span data-i18n="menu">Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
     </div>
   </header>
-
-  <main id="top">
-    <section class="hero">
-      <img src="assets/hero.webp" width="1400" height="788" fetchpriority="high" alt="Illustrative Italian gourmet collection on a stone table" />
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="heroEyebrow">Italian rituals · Seoul evenings</p>
-        <h1 data-i18n="heroTitle">Italy, opened<br>at your table.</h1>
-        <p data-i18n="heroText">Six remarkable pantry pieces. One unforgettable evening. Curated from small Italian producers for Korea.</p>
-        <a class="button light" href="#boxes" data-i18n="heroCta">Discover the boxes</a>
-      </div>
-      <p class="hero-note" data-i18n="heroNote">First Seoul drop · Limited to 150 boxes</p>
+  <main id="main" tabindex="-1">
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <img src="assets/hero.webp" width="1400" height="788" fetchpriority="high" alt="Illustrative Italian pantry collection with pasta, truffle and a gift box on a stone table" data-i18n-alt="heroAlt">
+      <div class="hero-copy"><p class="eyebrow" data-i18n="heroEyebrow">A little Italy. A slower evening.</p><h1 id="heroTitle" data-i18n="heroTitle">Good food.<br>Better company.</h1><p class="hero-text" data-i18n="heroText">Six pantry favourites. Three thoughtfully composed boxes. An Italian-inspired table, imagined for Seoul.</p><div class="hero-actions"><a class="button cream" href="#boxes"><span data-i18n="heroCta">Find your evening</span><span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#pantry" data-i18n="heroSecondary">Explore the pantry</a></div></div>
+      <div class="hero-foot"><span data-i18n="heroNote">Collection No. 01 / The Italian evening</span><span aria-hidden="true">ITALIA · SEOUL</span></div>
     </section>
+    <section class="intro wrap" aria-labelledby="introTitle"><div><p class="eyebrow" data-i18n="introEyebrow">The Vero philosophy</p><h2 id="introTitle" data-i18n="introTitle">Less to choose.<br>More to savour.</h2></div><div class="intro-detail"><p class="lead" data-i18n="introText">A good evening does not need a complicated menu. Our concept brings a small Italian pantry together with simple serving rituals, so you can spend more time at the table.</p><div class="pillars"><div><span class="index">01</span><h3 data-i18n="pillar1Title">Origin matters</h3><p data-i18n="pillar1Text">Regional stories guide our sourcing. Producers are still to be confirmed.</p></div><div><span class="index">02</span><h3 data-i18n="pillar2Title">Only the essentials</h3><p data-i18n="pillar2Text">Six ingredients, chosen to work beautifully together.</p></div><div><span class="index">03</span><h3 data-i18n="pillar3Title">An evening to give</h3><p data-i18n="pillar3Text">Gift-box concepts for a first taste, a date night or a generous table.</p></div></div></div></section>
+    <section id="boxes" class="collection section" aria-labelledby="boxesTitle"><div class="wrap"><div class="section-head"><div><p class="eyebrow" data-i18n="boxesEyebrow">01 / The collection</p><h2 id="boxesTitle" data-i18n="boxesTitle">What kind of evening?</h2></div><p data-i18n="boxesText">Start small or make an occasion of it. Explore three gift-box concepts, with sample prices in Korean won.</p></div><div id="boxGrid" class="product-grid boxes"><article class="product-card"><button disabled class="product-visual visual-button" data-product="discovery" type="button" data-detail="discovery" aria-label="Discover what’s inside: Discovery Box">
+    <span class="badge">For two</span>
+    <span class="package gift" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>I</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>Discovery Box</h3><p>Truffle sauce + artisan pasta. Your first Italian night.</p><button disabled class="details-btn" data-detail="discovery">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩44,900</span></div><button disabled class="add-btn" data-add="discovery" aria-label="Add to bag: Discovery Box">Add to bag <span aria-hidden="true">+</span></button></div></div></article><article class="product-card"><button disabled class="product-visual visual-button" data-product="date" type="button" data-detail="date" aria-label="Discover what’s inside: Italian Date Night">
+    <span class="badge">For an occasion</span>
+    <span class="package gift" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>II</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>Italian Date Night</h3><p>Five pieces for pasta, aperitivo and a sweet finish.</p><button disabled class="details-btn" data-detail="date">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩74,900</span></div><button disabled class="add-btn" data-add="date" aria-label="Add to bag: Italian Date Night">Add to bag <span aria-hidden="true">+</span></button></div></div></article><article class="product-card"><button disabled class="product-visual visual-button" data-product="signature" type="button" data-detail="signature" aria-label="Discover what’s inside: Signature Gift Box">
+    <span class="badge">The full ritual</span>
+    <span class="package gift" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>III</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>Signature Gift Box</h3><p>The complete six-piece Vero Seoul table.</p><button disabled class="details-btn" data-detail="signature">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩94,900</span></div><button disabled class="add-btn" data-add="signature" aria-label="Add to bag: Signature Gift Box">Add to bag <span aria-hidden="true">+</span></button></div></div></article></div><p class="collection-note"><span aria-hidden="true">✳</span> <span data-i18n="boxNote">Sample box price includes the proposed packaging and tasting experience; it is not a discounted bundle.</span></p></div></section>
+    <section id="ritual" class="ritual" aria-labelledby="ritualTitle"><div class="ritual-image"><img src="assets/hero.webp" width="1400" height="788" loading="lazy" alt="Illustrative Italian pantry collection with pasta, truffle and a gift box on a stone table" data-i18n-alt="heroAlt"><span class="image-caption" data-i18n="collectionLabel">Concept packaging</span></div><div class="ritual-copy"><p class="eyebrow" data-i18n="ritualEyebrow">03 / At the table</p><h2 id="ritualTitle" data-i18n="ritualTitle">A little truffle.<br>A little time.</h2><ol class="steps"><li><span>01</span><p data-i18n="step1">Boil the pasta until al dente.</p></li><li><span>02</span><p data-i18n="step2">Loosen the sauce with a spoon of pasta water.</p></li><li><span>03</span><p data-i18n="step3">Finish with truffle salt. Put the phones away.</p></li></ol><p class="fine-print" data-i18n="ritualNote">Serving inspiration · Follow the final product’s cooking instructions.</p><a class="text-link" href="#pantry"><span data-i18n="heroSecondary">Explore the pantry</span> <span aria-hidden="true">↗</span></a></div></section>
+    <section id="pantry" class="section wrap" aria-labelledby="pantryTitle"><div class="section-head"><div><p class="eyebrow" data-i18n="pantryEyebrow">02 / The essentials</p><h2 id="pantryTitle" data-i18n="pantryTitle">A small pantry.<br>Endless possibilities.</h2></div><p data-i18n="pantryText">Meet the six pieces behind the collection. Every product and package shown is illustrative.</p></div><div class="catalog-tools" hidden><div class="filters" role="group" aria-label="Product categories"><button data-filter="all" aria-pressed="true" data-i18n="all">All six</button><button data-filter="truffle" aria-pressed="false" data-i18n="truffle">Truffle</button><button data-filter="table" aria-pressed="false" data-i18n="table">For the table</button></div><label class="sort"><span data-i18n="sortLabel">Sort by</span><select id="sortSelect"><option value="curated" data-i18n="curated">Our selection</option><option value="priceLow" data-i18n="priceLow">Price: low to high</option><option value="priceHigh" data-i18n="priceHigh">Price: high to low</option></select></label></div><p id="resultCount" class="sr-only" role="status"></p><div id="productGrid" class="product-grid pantry"><article class="product-card"><button disabled class="product-visual visual-button" data-product="sauce" type="button" data-detail="sauce" aria-label="Discover what’s inside: Black Truffle Sauce">
+    <span class="badge">Hero ingredient</span>
+    <span class="package jar" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>TARTUFO</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>Black Truffle Sauce</h3><p>A deep, earthy finish for pasta, eggs and warm bread. 90g.</p><button disabled class="details-btn" data-detail="sauce">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩18,900</span></div><button disabled class="add-btn" data-add="sauce" aria-label="Add to bag: Black Truffle Sauce">Add to bag <span aria-hidden="true">+</span></button></div></div></article><article class="product-card"><button disabled class="product-visual visual-button" data-product="honey" type="button" data-detail="honey" aria-label="Discover what’s inside: Truffle Acacia Honey">
 
-    <section class="intro">
-      <p class="eyebrow" data-i18n="introEyebrow">Not another grocery store</p>
-      <h2 data-i18n="introTitle">A complete Italian evening,<br>thoughtfully edited.</h2>
-      <p data-i18n="introText">We pair long-shelf-life specialties with simple rituals, serving notes and beautiful gifting — so every jar earns its place at the table.</p>
-      <div class="pillars">
-        <div><span>01</span><h3 data-i18n="pillar1Title">Small producers</h3><p data-i18n="pillar1Text">Origin and craft you can trace.</p></div>
-        <div><span>02</span><h3 data-i18n="pillar2Title">Six essentials</h3><p data-i18n="pillar2Text">No endless aisle. Only considered choices.</p></div>
-        <div><span>03</span><h3 data-i18n="pillar3Title">Made to gift</h3><p data-i18n="pillar3Text">An occasion, ready to open.</p></div>
-      </div>
-    </section>
+    <span class="package jar" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>MIELE</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>Truffle Acacia Honey</h3><p>Floral sweetness with a savoury truffle edge. 100g.</p><button disabled class="details-btn" data-detail="honey">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩22,900</span></div><button disabled class="add-btn" data-add="honey" aria-label="Add to bag: Truffle Acacia Honey">Add to bag <span aria-hidden="true">+</span></button></div></div></article><article class="product-card"><button disabled class="product-visual visual-button" data-product="salt" type="button" data-detail="salt" aria-label="Discover what’s inside: Black Truffle Salt">
 
-    <section id="boxes" class="section wrap">
-      <div class="section-head"><div><p class="eyebrow" data-i18n="boxesEyebrow">The box collection</p><h2 data-i18n="boxesTitle">Choose your evening</h2></div><p data-i18n="boxesText">Every box includes an English–Korean tasting card and an easy serving ritual.</p></div>
-      <div id="boxGrid" class="product-grid boxes"></div>
-    </section>
+    <span class="package jar" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>SALE</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>Black Truffle Salt</h3><p>The effortless final touch for risotto, fries and steak. 60g.</p><button disabled class="details-btn" data-detail="salt">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩14,900</span></div><button disabled class="add-btn" data-add="salt" aria-label="Add to bag: Black Truffle Salt">Add to bag <span aria-hidden="true">+</span></button></div></div></article><article class="product-card"><button disabled class="product-visual visual-button" data-product="pasta" type="button" data-detail="pasta" aria-label="Discover what’s inside: Bronze-cut Tagliatelle">
 
-    <section class="ritual">
-      <div class="ritual-copy">
-        <p class="eyebrow" data-i18n="ritualEyebrow">The 20-minute ritual</p>
-        <h2 data-i18n="ritualTitle">Tagliatelle,<br>truffle & time.</h2>
-        <ol>
-          <li><b>01</b><span data-i18n="step1">Boil the pasta until al dente.</span></li>
-          <li><b>02</b><span data-i18n="step2">Loosen the sauce with a spoon of pasta water.</span></li>
-          <li><b>03</b><span data-i18n="step3">Finish with truffle salt. Put the phones away.</span></li>
-        </ol>
-      </div>
-      <div class="quote"><span>“</span><p data-i18n="quote">The luxury is not more choice.<br>It is the right choice, beautifully made.</p></div>
-    </section>
+    <span class="package bag" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>PASTA</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>Bronze-cut Tagliatelle</h3><p>Slow-dried artisan pasta with a sauce-loving texture. 500g.</p><button disabled class="details-btn" data-detail="pasta">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩9,900</span></div><button disabled class="add-btn" data-add="pasta" aria-label="Add to bag: Bronze-cut Tagliatelle">Add to bag <span aria-hidden="true">+</span></button></div></div></article><article class="product-card"><button disabled class="product-visual visual-button" data-product="taralli" type="button" data-detail="taralli" aria-label="Discover what’s inside: EVOO Taralli">
 
-    <section id="pantry" class="section wrap">
-      <div class="section-head"><div><p class="eyebrow" data-i18n="pantryEyebrow">Build your own table</p><h2 data-i18n="pantryTitle">The six-piece pantry</h2></div><p data-i18n="pantryText">Start with one specialty or compose your own Italian night.</p></div>
-      <div id="productGrid" class="product-grid"></div>
-    </section>
+    <span class="package bag" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>TARALLI</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>EVOO Taralli</h3><p>A crisp Puglian aperitivo companion. 250g.</p><button disabled class="details-btn" data-detail="taralli">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩7,900</span></div><button disabled class="add-btn" data-add="taralli" aria-label="Add to bag: EVOO Taralli">Add to bag <span aria-hidden="true">+</span></button></div></div></article><article class="product-card"><button disabled class="product-visual visual-button" data-product="balsamic" type="button" data-detail="balsamic" aria-label="Discover what’s inside: Aged Balsamic Condiment">
 
-    <section id="story" class="story">
-      <div><p class="eyebrow" data-i18n="storyEyebrow">Italy is part of the product</p><h2 data-i18n="storyTitle">From a place,<br>not a production line.</h2></div>
-      <div><p data-i18n="storyText">Vero Seoul introduces a small, rotating edit of regional Italian specialties to curious Korean tables. We choose products for provenance, taste, shelf life and the story they let us tell together.</p><p data-i18n="storyNote">Pilot concept · Products and producer details are illustrative pending supplier and Korean import approval.</p></div>
-    </section>
-
-    <section class="newsletter">
-      <p class="eyebrow" data-i18n="newsletterEyebrow">The first table</p>
-      <h2 data-i18n="newsletterTitle">Join the Seoul tasting list.</h2>
-      <form id="newsletterForm"><label class="sr-only" for="email">Email</label><input id="email" type="email" placeholder="Email address" required><button class="button dark" data-i18n="join">Join the list</button></form>
-      <p id="newsletterMsg" role="status"></p>
-    </section>
+    <span class="package bottle" aria-hidden="true"><small>VERO.</small><em>SEOUL</em><strong>BALSAMICO</strong><span class="package-line"></span></span>
+    <span class="visual-label">Concept packaging</span><span class="visual-arrow" aria-hidden="true">↗</span></button><div class="product-info"><h3>Aged Balsamic Condiment</h3><p>Velvety, balanced and made for finishing. 100ml.</p><button disabled class="details-btn" data-detail="balsamic">Discover what’s inside <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">Sample price</span><span class="price">₩19,900</span></div><button disabled class="add-btn" data-add="balsamic" aria-label="Add to bag: Aged Balsamic Condiment">Add to bag <span aria-hidden="true">+</span></button></div></div></article></div></section>
+    <section id="story" class="story" aria-labelledby="storyTitle"><div class="wrap story-inner"><div class="story-mark" aria-hidden="true"><span>V.</span><small>ITALIA ↗ SEOUL</small></div><div class="story-copy"><p class="eyebrow" data-i18n="storyEyebrow">Italy → Seoul</p><h2 id="storyTitle" data-i18n="storyTitle">Two places.<br>One shared table.</h2><p class="lead" data-i18n="storyText">Vero Seoul is an idea for bringing regional Italian specialities to curious Korean tables. Origin, flavour and the pleasure of sharing guide the concept. The collection is a starting point for conversations with future partners.</p><p class="story-note" data-i18n="storyNote">Producers, ingredients, Korean import arrangements and fulfilment are not yet confirmed. This is a concept preview, not a live shop.</p></div></div></section>
+    <section id="faq" class="faq section wrap" aria-labelledby="faqTitle"><div><p class="eyebrow" data-i18n="faqEyebrow">Good to know</p><h2 id="faqTitle" data-i18n="faqTitle">A few things, before dinner.</h2></div><div class="faq-list"><details><summary data-i18n="faq1">Can I place a real order?</summary><p data-i18n="answer1">Not yet. This is a partner preview: products, packaging and prices are illustrative. The bag and checkout let you explore the experience without making a purchase.</p></details><details><summary data-i18n="faq2">What is inside each gift box?</summary><p data-i18n="answer2">Discovery pairs truffle sauce and tagliatelle. Date Night adds honey, salt and taralli. Signature includes all six pantry pieces. Open a box to see its full selection.</p></details><details><summary data-i18n="faq3">Are delivery and imports confirmed?</summary><p data-i18n="answer3">No. Suppliers, Korean import requirements, final labels and delivery arrangements must be confirmed before a commercial launch.</p></details><details><summary data-i18n="faq4">What happens to my data?</summary><p data-i18n="answer4">The demo remembers only your language and bag in this browser when storage is available. No email, address or payment data is saved or sent by the demo forms.</p></details></div></section>
+    <section class="newsletter"><div class="wrap newsletter-inner"><div><p class="eyebrow" data-i18n="newsletterEyebrow">Before you go</p><h2 data-i18n="newsletterTitle">A taste of what’s next.</h2></div><div><p data-i18n="newsletterText">Try the tasting-list interaction. This demo does not subscribe you or store your email.</p><form id="newsletterForm"><label class="sr-only" for="email" data-i18n="email">Email address</label><input id="email" type="email" autocomplete="email" placeholder="Your email address" required aria-describedby="newsletterMsg"><button class="button dark" data-i18n="join" disabled>Try the demo</button></form><p id="newsletterMsg" role="status"></p></div></div></section>
   </main>
-
-  <footer><a class="brand inverse" href="#top"><span>VERO</span><small>SEOUL</small></a><p data-i18n="footer">Italian gourmet rituals, curated for Korea.</p><p>© 2026 Vero Seoul · Concept prototype</p></footer>
-
-  <div id="overlay" class="overlay" hidden></div>
-  <aside id="cartDrawer" class="drawer" aria-label="Shopping bag" aria-hidden="true">
-    <div class="drawer-head"><div><p class="eyebrow" data-i18n="yourBag">Your bag</p><h2><span id="drawerCount">0</span> <span data-i18n="items">items</span></h2></div><button id="closeCart" class="close" aria-label="Close cart">×</button></div>
-    <div id="cartItems" class="cart-items"></div>
-    <div class="cart-footer"><div class="subtotal"><span data-i18n="subtotal">Subtotal</span><b id="subtotal">₩0</b></div><p id="shippingNote"></p><button id="checkoutBtn" class="button dark full" data-i18n="checkout">Demo checkout</button><small data-i18n="demoNote">Prototype only — no payment will be processed.</small></div>
-  </aside>
-
-  <dialog id="checkoutDialog">
-    <button id="closeCheckout" class="close" aria-label="Close checkout">×</button>
-    <div id="checkoutFormWrap"><p class="eyebrow" data-i18n="checkoutEyebrow">Demo checkout</p><h2 data-i18n="checkoutTitle">Where should Italy arrive?</h2><form id="checkoutForm"><label><span data-i18n="name">Name</span><input required autocomplete="name"></label><label><span data-i18n="email">Email</span><input required type="email" autocomplete="email"></label><label><span data-i18n="district">Seoul district</span><select required><option value="">—</option><option>Gangnam-gu</option><option>Mapo-gu</option><option>Yongsan-gu</option><option>Jongno-gu</option><option>Seongdong-gu</option><option data-i18n="other">Other</option></select></label><button class="button dark full" data-i18n="placeOrder">Place demo order</button></form></div>
-    <div id="success" hidden><div class="success-mark">✓</div><p class="eyebrow" data-i18n="successEyebrow">Order concept confirmed</p><h2 data-i18n="successTitle">Your Italian evening is reserved.</h2><p data-i18n="successText">This is a prototype: no order or payment was transmitted.</p><button id="continueBtn" class="button dark" data-i18n="continue">Continue exploring</button></div>
-  </dialog>
-  <div id="toast" class="toast" role="status"></div>
-  <script src="app.js"></script>
-  <script src="preview.js"></script>
+  <footer class="footer"><div class="wrap footer-top"><a class="brand" href="#top" data-i18n-aria="home" aria-label="Vero Seoul home"><span>VERO<span class="brand-dot">.</span></span><small>SEOUL</small></a><p data-i18n="footer">Italian inspiration. Seoul perspective.</p><a href="#faq" class="text-link" data-i18n="navFaq">Questions</a></div><div class="wrap footer-bottom"><span data-i18n="footerNote">© 2026 Vero Seoul · Independent concept preview</span><span data-i18n="demoNote">Partner preview · No real purchases</span></div></footer>
+  <noscript><p class="noscript-note">You can browse this concept without JavaScript. Enable JavaScript to switch language or try the demo bag. 자바스크립트를 활성화하면 언어 변경과 데모 장바구니를 이용할 수 있습니다.</p></noscript>
+  <dialog id="cartDialog" class="cart-dialog" aria-labelledby="bagTitle"><div class="dialog-head"><div><p class="eyebrow" data-i18n="demoNote">Partner preview · No real purchases</p><h2 id="bagTitle" data-i18n="yourBag">Your demo bag</h2></div><button class="close" data-close="cartDialog" aria-label="Close" data-i18n-aria="close" autofocus>×</button></div><div id="cartItems" class="cart-items"></div><p id="bagStatus" class="sr-only" role="status"></p><div class="cart-footer"><div class="subtotal"><span data-i18n="subtotal">Sample subtotal</span><strong id="subtotal">₩0</strong></div><p data-i18n="bagNote">Sample prices only. Shipping and taxes are not calculated. No purchase will be made.</p><button id="checkoutBtn" class="button dark full" data-i18n="checkout">Review demo order</button><button class="text-btn full" data-close="cartDialog" data-i18n="continue">Back to the collection</button></div></dialog>
+  <dialog id="productDialog" class="product-dialog" aria-labelledby="detailTitle"><button class="close" data-close="productDialog" aria-label="Close" data-i18n-aria="close" autofocus>×</button><div id="productDetail"></div></dialog>
+  <dialog id="checkoutDialog" class="checkout-dialog" aria-labelledby="checkoutTitle"><button class="close" data-close="checkoutDialog" aria-label="Close" data-i18n-aria="close" autofocus>×</button><div id="checkoutFormWrap"><p class="eyebrow" data-i18n="checkoutEyebrow">Your selection</p><h2 id="checkoutTitle" data-i18n="checkoutTitle">One last look.</h2><div id="orderSummary"></div><p class="preview-label" data-i18n="checkoutNote">No address, payment or personal details needed. This only simulates an order.</p><button id="placeOrder" class="button dark full" data-i18n="placeOrder">Complete the demo</button></div><div id="success" hidden><span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow" data-i18n="successEyebrow">Demo complete</p><h2 id="successTitle" data-i18n="successTitle">An evening, imagined.</h2><p data-i18n="successText">You have completed the preview. Nothing was purchased or sent, and your demo bag has been cleared.</p><button id="continueBtn" class="button dark full" data-i18n="continue">Back to the collection</button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
