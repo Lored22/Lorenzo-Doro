@@ -14,7 +14,7 @@ function boot(saved = {}, blocked = false) {
       elements.set(key, {
         id: key, dataset: {}, attributes: {}, listeners: {}, innerHTML: '', textContent: '', content: '', hidden: false, disabled: false,
         classList: { add: x => classes.add(x), remove: x => classes.delete(x), contains: x => classes.has(x), toggle(x,on) { if (on ?? !classes.has(x)) classes.add(x); else classes.delete(x); } },
-        setAttribute(k,v) { this.attributes[k] = v; }, getAttribute(k) { return this.attributes[k]; },
+        removeAttribute(k) { delete this.attributes[k]; }, setAttribute(k,v) { this.attributes[k] = v; }, getAttribute(k) { return this.attributes[k]; },
         addEventListener(k,f) { this.listeners[k] = f; }, focus() { document.activeElement = this; }, reset() { this.didReset = true; },
         showModal() { this.open = true; }, close() { this.open = false; this.listeners.close?.(); },
         getBoundingClientRect() { return {left:0,right:400,top:0,bottom:600}; }
@@ -85,6 +85,9 @@ test('cart changes update totals, respect limits, persist and checkout clears th
  assert.equal(JSON.parse(app.stored.veroCart).sauce,1);
  app.element('cartBtn').listeners.click();assert(app.element('cartDialog').open);
  app.element('checkoutBtn').listeners.click();assert(app.element('checkoutDialog').open);assert(!app.element('cartDialog').open);
+ app.element('useSample').listeners.click();
+ app.element('shippingForm').listeners.submit({preventDefault(){}});
+ assert(!app.element('reviewStep').hidden);
  app.element('placeOrder').listeners.click();assert.equal(app.run('total()'),0);assert(app.element('checkoutFormWrap').hidden);assert(!app.element('success').hidden);assert.equal(app.stored.veroCart,'{}');
  app.run('cart={sauce:99};renderCart()');click({add:'sauce'});assert.equal(app.run('cart.sauce'),99);
 });
@@ -115,4 +118,43 @@ test('static IDs are unique, anchor and local asset targets exist, and forms hav
  }
  assert(!/<form[^>]*action=/.test(html));assert(!/<input[^>]*\bname=/.test(html));
  assert(!html.includes('preview.js'));assert(!html.includes('preview.css'));
+});
+test('choosing a bundle opens the bag and leads to required delivery fields',()=>{
+ const app=boot();
+ app.document.listeners.click({target:{closest:s=>s==='.site-header'?{}:s==='[data-add]'?{dataset:{add:'discovery'}}:null}});
+ assert(app.element('cartDialog').open);
+ assert.match(app.element('cartItems').innerHTML,/Black Truffle Sauce/);
+ app.element('checkoutBtn').listeners.click();
+ assert(!app.element('shippingStep').hidden);assert(app.element('reviewStep').hidden);
+ app.element('shippingForm').listeners.submit({preventDefault(){}});
+ assert(app.element('reviewStep').hidden);assert.equal(app.element('recipient').getAttribute('aria-invalid'),'true');
+ assert.equal(app.document.activeElement.id,'recipient');
+ app.element('placeOrder').listeners.click();assert.equal(app.run('total()'),44900);
+});
+test('invalid postal code, phone, email and overlong notes cannot advance to review',()=>{
+ const app=boot();app.run('cart={discovery:1}');app.element('checkoutBtn').listeners.click();app.element('useSample').listeners.click();
+ app.element('postcode').value='123';app.element('phone').value='not a phone';app.element('orderEmail').value='bad@';app.element('deliveryNotes').value='x'.repeat(201);
+ app.element('shippingForm').listeners.submit({preventDefault(){}});
+ for(const id of ['postcode','phone','orderEmail','deliveryNotes']) assert.equal(app.element(id).getAttribute('aria-invalid'),'true');
+ assert(app.element('reviewStep').hidden);
+});
+test('delivery review escapes user input, preserves edits and never persists personal fields',()=>{
+ const app=boot();app.run('cart={signature:1}');app.element('checkoutBtn').listeners.click();app.element('useSample').listeners.click();
+ app.element('unit').value='<img src=x onerror=alert(1)>';
+ app.element('shippingForm').listeners.submit({preventDefault(){}});
+ assert(!app.element('reviewStep').hidden);
+ assert.match(app.element('shippingSummary').innerHTML,/&lt;img/);assert(!app.element('shippingSummary').innerHTML.includes('<img'));
+ app.element('backDelivery').listeners.click();assert(!app.element('shippingStep').hidden);assert.equal(app.element('recipient').value,'Demo Guest');
+ app.element('street').value='456 Updated-ro';app.element('shippingForm').listeners.submit({preventDefault(){}});
+ assert.match(app.element('shippingSummary').innerHTML,/456 Updated-ro/);
+ assert(!JSON.stringify(app.stored).includes('demo@example.com'));
+ app.element('checkoutDialog').close();assert.equal(app.element('recipient').value,'');assert.equal(app.element('street').value,'');assert.equal(app.element('shippingSummary').textContent,'');assert.equal(app.run('shippingDetails'),null);
+ assert.equal(app.run('total()'),94900);
+});
+test('completion clears transient delivery details and the success copy promises no shipment',()=>{
+ const app=boot({veroLang:'ko'});app.run('cart={date:1}');app.element('checkoutBtn').listeners.click();app.element('useSample').listeners.click();
+ app.element('shippingForm').listeners.submit({preventDefault(){}});app.element('placeOrder').listeners.click();
+ assert.equal(app.element('phone').value,'');assert.equal(app.element('orderEmail').value,'');assert.equal(app.run('shippingDetails'),null);
+ assert.equal(app.stored.veroCart,'{}');assert.match(app.run('copy.en.successText'),/nothing will be shipped/);
+ assert.equal(app.element('checkoutDialog').getAttribute('aria-labelledby'),'successTitle');
 });

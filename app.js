@@ -162,15 +162,15 @@ const copy = {
     "yourBag": "Your demo bag",
     "items": "items",
     "subtotal": "Sample subtotal",
-    "checkout": "Review demo order",
+    "checkout": "Continue to delivery",
     "demoNote": "Partner preview · No real purchases",
-    "checkoutEyebrow": "Your selection",
-    "checkoutTitle": "One last look.",
+    "checkoutEyebrow": "Your evening, step by step",
+    "checkoutTitle": "Where should it arrive?",
     "email": "Email address",
-    "placeOrder": "Complete the demo",
+    "placeOrder": "Confirm demo — no payment",
     "successEyebrow": "Demo complete",
-    "successTitle": "An evening, imagined.",
-    "successText": "You have completed the preview. Nothing was purchased or sent, and your demo bag has been cleared.",
+    "successTitle": "Your delivery demo is complete.",
+    "successText": "No order was placed, no payment was taken and nothing will be shipped. Your entered details have been cleared.",
     "continue": "Back to the collection",
     "add": "Add to bag",
     "added": "Added to your demo bag",
@@ -202,8 +202,8 @@ const copy = {
     "emptyText": "Choose a box or a pantry favourite to try the demo.",
     "increase": "Increase quantity",
     "decrease": "Decrease quantity",
-    "bagNote": "Sample prices only. Shipping and taxes are not calculated. No purchase will be made.",
-    "checkoutNote": "No address, payment or personal details needed. This only simulates an order.",
+    "bagNote": "Next: enter a delivery address, then review your selection. Sample prices only; no real payment or shipment.",
+    "checkoutNote": "Delivery simulation only. Use fictional details to try the form. They stay in memory only while this checkout is open and are never saved or sent.",
     "all": "All six",
     "truffle": "Truffle",
     "table": "For the table",
@@ -221,9 +221,62 @@ const copy = {
     "faq3": "Are delivery and imports confirmed?",
     "answer3": "No. Suppliers, Korean import requirements, final labels and delivery arrangements must be confirmed before a commercial launch.",
     "faq4": "What happens to my data?",
-    "answer4": "The demo remembers only your language and bag in this browser when storage is available. No email, address or payment data is saved or sent by the demo forms.",
+    "answer4": "The demo remembers only your language and bag in this browser when storage is available. Delivery details are used only to show the current checkout summary and are cleared when it closes or finishes. No email, address or payment data is saved or sent by the demo forms.",
     "limit": "You can add up to 99 of each item in this demo.",
-    "removed": "Removed from your demo bag"
+    "removed": "Removed from your demo bag",
+    "chooseBox": "Choose this box",
+    "bundleContinue": "Add box & continue",
+    "stepBag": "Bag",
+    "stepDelivery": "Delivery",
+    "stepReview": "Review",
+    "progressLabel": "Checkout progress",
+    "shippingTitle": "Delivery details",
+    "shippingIntro": "Enter the recipient and a complete Seoul address. Fields marked * are required.",
+    "contactTitle": "Who is receiving it?",
+    "addressTitle": "Where are we delivering?",
+    "recipientLabel": "Recipient’s full name",
+    "recipientHint": "The person who will receive the package.",
+    "phoneLabel": "Mobile number",
+    "phoneHint": "Include the country code if needed, e.g. +82 10-0000-0000.",
+    "orderEmailLabel": "Email address",
+    "orderEmailHint": "For order updates in a real checkout. No email is sent in this demo.",
+    "countryLabel": "Country",
+    "countryValue": "South Korea",
+    "cityLabel": "City",
+    "cityValue": "Seoul",
+    "cityHint": "This preview demonstrates delivery within Seoul only. Coverage is not confirmed.",
+    "postcodeLabel": "Postal code",
+    "postcodeHint": "Enter the 5-digit Korean postal code for the address.",
+    "districtLabel": "District (gu)",
+    "districtHint": "For example: Gangbuk-gu / 강북구.",
+    "streetLabel": "Street address and building number",
+    "streetHint": "Use the road-name address, e.g. 123 Example-ro. Korean or Latin characters are accepted.",
+    "unitLabel": "Apartment, building or floor (optional)",
+    "unitHint": "For an apartment, add the building and unit, e.g. 101-dong, 502-ho.",
+    "notesLabel": "Delivery instructions (optional)",
+    "notesHint": "For example, a preferred drop-off location. Do not enter access codes or sensitive details.",
+    "useSample": "Use fictional sample details",
+    "sampleFilled": "Fictional details inserted. You can change them before continuing.",
+    "continueReview": "Review delivery & order",
+    "backBag": "Back to bag",
+    "backDelivery": "Edit delivery details",
+    "reviewTitle": "Check before confirming",
+    "reviewIntro": "Review the box contents, quantities and recipient. This is still a demo, with no payment or shipment.",
+    "deliverySummary": "Delivery to",
+    "selectionSummary": "Your selection",
+    "deliveryFees": "Shipping cost",
+    "notCalculated": "Not calculated in this preview",
+    "paymentLabel": "Payment",
+    "paymentUnavailable": "Unavailable — demo only",
+    "reviewNotice": "No final payable total is available. Delivery, tax treatment and payment must be configured before real orders can be accepted.",
+    "formError": "Check the highlighted fields before continuing.",
+    "recipientError": "Enter the recipient’s full name (at least 2 characters).",
+    "phoneError": "Enter a phone number containing 8–15 digits; +, spaces, hyphens and parentheses are allowed.",
+    "orderEmailError": "Enter a valid email address, such as demo@example.com.",
+    "postcodeError": "Enter a 5-digit postal code.",
+    "districtError": "Enter the district, such as Gangbuk-gu.",
+    "streetError": "Enter the street name and building number.",
+    "lengthError": "This entry is too long. Please shorten it."
   },
   "ko": {
     "announcement": "서울을 위한 이탈리안 아이디어 · 파트너 프리뷰",
@@ -267,15 +320,15 @@ const copy = {
     "yourBag": "데모 장바구니",
     "items": "개 상품",
     "subtotal": "예시 상품 합계",
-    "checkout": "데모 주문 확인",
+    "checkout": "배송 정보 입력",
     "demoNote": "파트너 프리뷰 · 실제 구매 불가",
-    "checkoutEyebrow": "선택한 제품",
-    "checkoutTitle": "마지막으로 확인해 보세요.",
+    "checkoutEyebrow": "한 단계씩 완성하는 저녁",
+    "checkoutTitle": "어디로 보내드릴까요?",
     "email": "이메일 주소",
-    "placeOrder": "데모 완료하기",
+    "placeOrder": "데모 확인 — 실제 결제 없음",
     "successEyebrow": "데모 완료",
-    "successTitle": "상상 속의 특별한 저녁.",
-    "successText": "프리뷰 체험이 완료되었습니다. 구매나 정보 전송은 없으며 데모 장바구니가 비워졌습니다.",
+    "successTitle": "배송 데모가 완료되었습니다.",
+    "successText": "실제 주문, 결제 및 배송은 이루어지지 않았습니다. 입력한 정보는 모두 삭제되었습니다.",
     "continue": "컬렉션으로 돌아가기",
     "add": "담기",
     "added": "데모 장바구니에 담았습니다",
@@ -307,8 +360,8 @@ const copy = {
     "emptyText": "박스나 팬트리 제품을 선택해 데모를 체험해 보세요.",
     "increase": "수량 늘리기",
     "decrease": "수량 줄이기",
-    "bagNote": "예시 가격입니다. 배송비와 세금은 계산되지 않습니다. 실제 구매는 이루어지지 않습니다.",
-    "checkoutNote": "주소, 결제 정보 또는 개인정보 없이 주문 과정을 체험합니다.",
+    "bagNote": "다음 단계에서 배송 주소를 입력하고 선택한 제품을 확인합니다. 가격은 예시이며 실제 결제나 배송은 없습니다.",
+    "checkoutNote": "배송 과정 시뮬레이션입니다. 가상 정보로 체험해 보세요. 입력한 정보는 이 화면을 이용하는 동안에만 유지되며 저장하거나 전송하지 않습니다.",
     "all": "전체",
     "truffle": "트러플",
     "table": "테이블을 위해",
@@ -326,9 +379,62 @@ const copy = {
     "faq3": "배송과 수입 절차가 확정되었나요?",
     "answer3": "아닙니다. 공급업체, 한국 수입 요건, 최종 라벨 및 배송 방식은 정식 출시 전에 확정해야 합니다.",
     "faq4": "개인정보는 어떻게 처리되나요?",
-    "answer4": "저장 기능을 사용할 수 있는 경우 이 브라우저에 언어와 장바구니만 기억합니다. 데모 양식에서 이메일, 주소 또는 결제 정보는 저장하거나 전송하지 않습니다.",
+    "answer4": "저장 기능을 사용할 수 있는 경우 이 브라우저에 언어와 장바구니만 기억합니다. 배송 정보는 현재 주문 요약을 보여주는 데만 사용하며 화면을 닫거나 완료하면 지워집니다. 이메일, 주소 또는 결제 정보는 저장하거나 전송하지 않습니다.",
     "limit": "데모에서는 제품당 최대 99개까지 담을 수 있습니다.",
-    "removed": "데모 장바구니에서 삭제했습니다"
+    "removed": "데모 장바구니에서 삭제했습니다",
+    "chooseBox": "이 박스 선택",
+    "bundleContinue": "박스 담고 계속하기",
+    "stepBag": "장바구니",
+    "stepDelivery": "배송 정보",
+    "stepReview": "최종 확인",
+    "progressLabel": "주문 진행 단계",
+    "shippingTitle": "배송 정보",
+    "shippingIntro": "받는 분과 서울 내 상세 주소를 입력해 주세요. * 표시 항목은 필수입니다.",
+    "contactTitle": "누가 받으시나요?",
+    "addressTitle": "어디로 배송하나요?",
+    "recipientLabel": "받는 분 성함",
+    "recipientHint": "택배를 받을 분의 이름을 입력해 주세요.",
+    "phoneLabel": "휴대전화 번호",
+    "phoneHint": "필요한 경우 국가번호를 포함해 주세요. 예: +82 10-0000-0000.",
+    "orderEmailLabel": "이메일 주소",
+    "orderEmailHint": "실제 주문 시 안내를 받을 주소입니다. 이 데모에서는 이메일을 보내지 않습니다.",
+    "countryLabel": "국가",
+    "countryValue": "대한민국",
+    "cityLabel": "도시",
+    "cityValue": "서울",
+    "cityHint": "서울 내 배송 과정을 보여주는 프리뷰입니다. 실제 배송 가능 지역은 확정되지 않았습니다.",
+    "postcodeLabel": "우편번호",
+    "postcodeHint": "해당 주소의 5자리 우편번호를 입력해 주세요.",
+    "districtLabel": "구",
+    "districtHint": "예: 강북구 / Gangbuk-gu.",
+    "streetLabel": "도로명 주소 및 건물번호",
+    "streetHint": "도로명과 건물번호를 입력해 주세요. 한글 또는 영문으로 입력할 수 있습니다.",
+    "unitLabel": "동, 호수 또는 층 (선택)",
+    "unitHint": "아파트라면 동과 호수를 추가해 주세요. 예: 101동 502호.",
+    "notesLabel": "배송 요청사항 (선택)",
+    "notesHint": "원하는 수령 장소 등을 입력해 주세요. 출입 비밀번호나 민감한 정보는 입력하지 마세요.",
+    "useSample": "가상 예시 정보 입력",
+    "sampleFilled": "가상 정보가 입력되었습니다. 다음 단계 전에 수정할 수 있습니다.",
+    "continueReview": "배송 정보 및 주문 확인",
+    "backBag": "장바구니로 돌아가기",
+    "backDelivery": "배송 정보 수정",
+    "reviewTitle": "확인 후 완료해 주세요",
+    "reviewIntro": "박스 구성, 수량, 받는 분을 확인해 주세요. 실제 결제나 배송이 없는 데모입니다.",
+    "deliverySummary": "받는 분 및 주소",
+    "selectionSummary": "선택한 제품",
+    "deliveryFees": "배송비",
+    "notCalculated": "프리뷰에서는 계산되지 않습니다",
+    "paymentLabel": "결제",
+    "paymentUnavailable": "이용 불가 — 데모 전용",
+    "reviewNotice": "최종 결제 금액은 제공되지 않습니다. 실제 주문을 받기 전에 배송, 세금 처리 및 결제 기능을 확정해야 합니다.",
+    "formError": "표시된 항목을 확인한 뒤 다시 진행해 주세요.",
+    "recipientError": "받는 분의 성함을 2자 이상 입력해 주세요.",
+    "phoneError": "숫자 8~15자리의 전화번호를 입력해 주세요. +, 공백, 하이픈, 괄호를 사용할 수 있습니다.",
+    "orderEmailError": "올바른 이메일 주소를 입력해 주세요. 예: demo@example.com.",
+    "postcodeError": "5자리 우편번호를 입력해 주세요.",
+    "districtError": "강북구와 같이 구 이름을 입력해 주세요.",
+    "streetError": "도로명과 건물번호를 입력해 주세요.",
+    "lengthError": "입력한 내용이 너무 깁니다. 짧게 입력해 주세요."
   }
 };
 
@@ -380,7 +486,7 @@ function packaging(item, interactive = false) {
     <span class="visual-label">${t('collectionLabel')}</span>${interactive ? '<span class="visual-arrow" aria-hidden="true">↗</span>' : ''}</${tag}>`;
 }
 function cardMarkup(item) {
-  return `<article class="product-card">${packaging(item, true)}<div class="product-info"><h3>${escapeHTML(itemName(item))}</h3><p>${escapeHTML(itemDescription(item))}</p><button class="details-btn" data-detail="${item.id}">${t('details')} <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">${t('samplePrice')}</span><span class="price">${won(item.price)}</span></div><button class="add-btn" data-add="${item.id}" aria-label="${escapeHTML(t('add') + ': ' + itemName(item))}">${t('add')} <span aria-hidden="true">+</span></button></div></div></article>`;
+  return `<article class="product-card">${packaging(item, true)}<div class="product-info"><h3>${escapeHTML(itemName(item))}</h3><p>${escapeHTML(itemDescription(item))}</p><button class="details-btn" data-detail="${item.id}">${t('details')} <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">${t('samplePrice')}</span><span class="price">${won(item.price)}</span></div><button class="add-btn" data-add="${item.id}" aria-label="${escapeHTML(t('add') + ': ' + itemName(item))}">${item.included ? t('chooseBox') : t('add')} <span aria-hidden="true">+</span></button></div></div></article>`;
 }
 function renderProducts() {
   const visible = products.filter(item => filter === 'all' || item.category === filter);
@@ -397,7 +503,7 @@ function renderCart() {
   $('subtotal').textContent = won(total());
   $('bagStatus').textContent = `${count} ${t('items')} · ${won(total())}`;
   $('checkoutBtn').disabled = count === 0;
-  $('cartItems').innerHTML = count ? entries().map(({item,quantity}) => `<div class="cart-line"><div><h3>${escapeHTML(itemName(item))}</h3><p>${won(item.price)}</p><div class="cart-controls"><div class="qty"><button data-qty="${item.id}" data-delta="-1" aria-label="${escapeHTML(t('decrease') + ': ' + itemName(item))}">−</button><span>${quantity}</span><button data-qty="${item.id}" data-delta="1" ${quantity >= 99 ? 'disabled' : ''} aria-label="${escapeHTML(t('increase') + ': ' + itemName(item))}">+</button></div><button class="remove" data-remove="${item.id}" aria-label="${escapeHTML(t('remove') + ': ' + itemName(item))}">${t('remove')}</button></div></div><strong>${won(item.price * quantity)}</strong></div>`).join('') : `<div class="empty"><span aria-hidden="true">V.</span><h3>${t('empty')}</h3><p>${t('emptyText')}</p><button class="button dark" data-explore>${t('backCollection')} ↗</button></div>`;
+  $('cartItems').innerHTML = count ? entries().map(({item,quantity}) => `<div class="cart-line"><div><h3>${escapeHTML(itemName(item))}</h3>${item.included ? `<p class="bundle-contents">${item.included.map(id => escapeHTML(itemName(findItem(id)))).join(' · ')}</p>` : ''}<p>${won(item.price)}</p><div class="cart-controls"><div class="qty"><button data-qty="${item.id}" data-delta="-1" aria-label="${escapeHTML(t('decrease') + ': ' + itemName(item))}">−</button><span>${quantity}</span><button data-qty="${item.id}" data-delta="1" ${quantity >= 99 ? 'disabled' : ''} aria-label="${escapeHTML(t('increase') + ': ' + itemName(item))}">+</button></div><button class="remove" data-remove="${item.id}" aria-label="${escapeHTML(t('remove') + ': ' + itemName(item))}">${t('remove')}</button></div></div><strong>${won(item.price * quantity)}</strong></div>`).join('') : `<div class="empty"><span aria-hidden="true">V.</span><h3>${t('empty')}</h3><p>${t('emptyText')}</p><button class="button dark" data-explore>${t('backCollection')} ↗</button></div>`;
 }
 function saveCart() { storage.set('veroCart', JSON.stringify(cart)); renderCart(); }
 function toast(message) {
@@ -413,11 +519,12 @@ function renderDetail(id) {
   const item = findItem(id);
   if (!item) return;
   detailId = id;
-  $('productDetail').innerHTML = `<div class="product-detail-grid">${packaging(item)}<div class="detail-copy"><p class="eyebrow">VERO SEOUL / ${t('collectionLabel')}</p><h2 id="detailTitle">${escapeHTML(itemName(item))}</h2><p>${escapeHTML(itemDescription(item))}</p>${item.included ? `<h3>${t('included')}</h3><ul>${item.included.map(productId => `<li>${escapeHTML(itemName(findItem(productId)))}</li>`).join('')}</ul><p>${t('boxNote')}</p>` : ''}<p class="detail-price"><span class="price-label">${t('samplePrice')}</span>${won(item.price)}</p><button class="button dark full" data-add="${id}">${t('add')} +</button><p class="preview-label">${t('productNote')}</p></div></div>`;
+  $('productDetail').innerHTML = `<div class="product-detail-grid">${packaging(item)}<div class="detail-copy"><p class="eyebrow">VERO SEOUL / ${t('collectionLabel')}</p><h2 id="detailTitle">${escapeHTML(itemName(item))}</h2><p>${escapeHTML(itemDescription(item))}</p>${item.included ? `<h3>${t('included')}</h3><ul>${item.included.map(productId => `<li>${escapeHTML(itemName(findItem(productId)))}</li>`).join('')}</ul><p>${t('boxNote')}</p>` : ''}<p class="detail-price"><span class="price-label">${t('samplePrice')}</span>${won(item.price)}</p><button class="button dark full" data-add="${id}">${item.included ? t('bundleContinue') : t('add')} +</button><p class="preview-label">${t('productNote')}</p></div></div>`;
 }
 function renderOrder() {
-  $('orderSummary').innerHTML = entries().map(({item,quantity}) => `<div class="order-line"><span>${escapeHTML(itemName(item))} × ${quantity}</span><strong>${won(item.price * quantity)}</strong></div>`).join('') + `<div class="subtotal"><span>${t('subtotal')}</span><strong>${won(total())}</strong></div>`;
+  $('orderSummary').innerHTML = entries().map(({item,quantity}) => `<div class="order-line"><div><span>${escapeHTML(itemName(item))} × ${quantity}</span>${item.included ? `<small class="bundle-contents">${item.included.map(id => escapeHTML(itemName(findItem(id)))).join(' · ')}</small>` : ''}</div><strong>${won(item.price * quantity)}</strong></div>`).join('') + `<div class="subtotal"><span>${t('subtotal')}</span><strong>${won(total())}</strong></div><div class="cost-note"><span>${t('deliveryFees')}</span><span>${t('notCalculated')}</span></div><div class="cost-note"><span>${t('paymentLabel')}</span><span>${t('paymentUnavailable')}</span></div>`;
 }
+
 function translate() {
   const meta = pageMetadata[lang];
   document.documentElement.lang = lang;
@@ -433,14 +540,86 @@ function translate() {
   $('langBtn').lang = lang === 'en' ? 'ko' : 'en';
   $('langBtn').setAttribute('aria-label', t('switchLanguage'));
   $('email').placeholder = t('emailPlaceholder');
+  $('recipient').placeholder = lang === 'ko' ? '예: 김데모' : 'e.g. Kim Demo';
   document.querySelector('.filters').setAttribute('aria-label', lang === 'ko' ? '제품 카테고리' : 'Product categories');
   $('boxGrid').innerHTML = boxes.map(cardMarkup).join('');
   renderProducts(); renderCart();
   if (detailId) renderDetail(detailId);
-  if ($('checkoutDialog').open) renderOrder();
+  if ($('checkoutDialog').open) { renderOrder(); if (shippingDetails) renderShippingSummary(); }
   $('newsletterMsg').textContent = '';
 }
 function closeMenu() { $('mainNav').classList.remove('open'); $('menuBtn').setAttribute('aria-expanded', 'false'); }
+const shippingFields = ['recipient','phone','orderEmail','postcode','district','street','unit','deliveryNotes'];
+const shippingLimits = {recipient:80,phone:30,orderEmail:160,postcode:5,district:80,street:160,unit:100,deliveryNotes:200};
+let shippingDetails = null;
+function readShippingFields() {
+  return Object.fromEntries(shippingFields.map(id => [id, $(id).value.trim()]));
+}
+function validateShipping(values) {
+  const errors = {};
+  if (!values.recipient || values.recipient.trim().length < 2) errors.recipient = 'recipientError';
+  const digits = (values.phone || '').replace(/\D/g, '');
+  if (!/^[+()\d\s.-]+$/.test(values.phone || '') || digits.length < 8 || digits.length > 15) errors.phone = 'phoneError';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.orderEmail || '')) errors.orderEmail = 'orderEmailError';
+  if (!/^\d{5}$/.test(values.postcode || '')) errors.postcode = 'postcodeError';
+  if (!values.district || values.district.trim().length < 2) errors.district = 'districtError';
+  if (!values.street || values.street.trim().length < 3) errors.street = 'streetError';
+  for (const id of shippingFields) if ((values[id] || '').length > shippingLimits[id]) errors[id] = 'lengthError';
+  return errors;
+}
+function clearFieldError(id) {
+  $(id).removeAttribute('aria-invalid');
+  $(id + 'Error').textContent = '';
+}
+function resetShipping() {
+  shippingDetails = null;
+  $('shippingForm').reset();
+  // Explicitly clear input values as well as the transient review markup.
+  for (const id of shippingFields) { $(id).value = ''; clearFieldError(id); }
+  $('shippingSummary').textContent = '';
+  $('formErrors').textContent = '';
+  $('sampleStatus').textContent = '';
+}
+function setCheckoutStep(step, focus = true) {
+  const review = step === 'review';
+  $('shippingStep').hidden = review;
+  $('reviewStep').hidden = !review;
+  document.querySelector('.checkout-layout').classList.toggle('reviewing', review);
+  $('checkoutDialog').setAttribute('aria-labelledby', review ? 'reviewTitle' : 'shippingTitle');
+  $('stepDelivery').setAttribute('aria-current', review ? 'false' : 'step');
+  $('stepReview').setAttribute('aria-current', review ? 'step' : 'false');
+  if (focus) $(review ? 'reviewTitle' : 'shippingTitle').focus();
+  $('checkoutDialog').scrollTop = 0;
+}
+function renderShippingSummary() {
+  if (!shippingDetails) return;
+  const v = shippingDetails;
+  $('shippingSummary').innerHTML = `<strong>${escapeHTML(v.recipient)}</strong><p>${escapeHTML(v.phone)}<br>${escapeHTML(v.orderEmail)}</p><p>${escapeHTML(v.street)}${v.unit ? '<br>' + escapeHTML(v.unit) : ''}<br>${escapeHTML(v.district)}, ${t('cityValue')} ${escapeHTML(v.postcode)}<br>${t('countryValue')}</p>${v.deliveryNotes ? `<p><strong>${t('notesLabel')}</strong><br>${escapeHTML(v.deliveryNotes)}</p>` : ''}`;
+}
+$('shippingForm').addEventListener('submit', event => {
+  event.preventDefault();
+  if (!entries().length) return;
+  const values = readShippingFields();
+  const errors = validateShipping(values);
+  for (const id of shippingFields) {
+    clearFieldError(id);
+    if (errors[id]) { $(id).setAttribute('aria-invalid','true'); $(id + 'Error').textContent = t(errors[id]); }
+  }
+  const invalid = Object.keys(errors);
+  $('formErrors').textContent = invalid.length ? t('formError') : '';
+  if (invalid.length) { $(invalid[0]).focus(); return; }
+  shippingDetails = values; renderShippingSummary(); renderOrder(); setCheckoutStep('review');
+});
+for (const id of shippingFields) $(id).addEventListener('input', () => { clearFieldError(id); $('sampleStatus').textContent = ''; });
+$('backDelivery').addEventListener('click', () => setCheckoutStep('delivery'));
+$('backBag').addEventListener('click', () => { closeDialog('checkoutDialog'); openDialog('cartDialog'); });
+$('useSample').addEventListener('click', () => {
+  // Deliberately fictional, explicitly labelled sample data; never a real recipient.
+  const sample = {recipient:'Demo Guest',phone:'010-0000-0000',orderEmail:'demo@example.com',postcode:'01234',district:'Gangbuk-gu',street:'123 Example-ro',unit:'Demo building, 502-ho',deliveryNotes:''};
+  for (const id of shippingFields) { $(id).value = sample[id]; clearFieldError(id); }
+  $('formErrors').textContent = ''; $('sampleStatus').textContent = t('sampleFilled');
+});
+
 $('menuBtn').addEventListener('click', () => {
   const open = $('menuBtn').getAttribute('aria-expanded') !== 'true';
   $('menuBtn').setAttribute('aria-expanded', String(open));
@@ -457,7 +636,8 @@ document.addEventListener('click', event => {
     cart[id] = (cart[id] || 0) + 1;
     saveCart();
     if ($('productDialog').open) closeDialog('productDialog');
-    toast(t('added'));
+    if (findItem(id).included) openDialog('cartDialog');
+    else toast(t('added'));
   }
   const detail = event.target.closest('[data-detail]');
   if (detail) { renderDetail(detail.dataset.detail); openDialog('productDialog'); }
@@ -488,13 +668,14 @@ $('cartBtn').addEventListener('click', () => openDialog('cartDialog'));
 $('checkoutBtn').addEventListener('click', () => {
   if (!entries().length) return;
   closeDialog('cartDialog');
+  resetShipping();
   $('checkoutFormWrap').hidden = false; $('success').hidden = true;
-  $('checkoutDialog').setAttribute('aria-labelledby','checkoutTitle');
-  renderOrder(); openDialog('checkoutDialog');
+  renderOrder(); setCheckoutStep('delivery', false); openDialog('checkoutDialog');
+  $('recipient').focus();
 });
 $('placeOrder').addEventListener('click', () => {
-  if (!entries().length) return;
-  cart = {}; saveCart();
+  if (!entries().length || !shippingDetails || Object.keys(validateShipping(shippingDetails)).length) return;
+  cart = {}; saveCart(); resetShipping();
   $('checkoutFormWrap').hidden = true; $('success').hidden = false;
   $('checkoutDialog').setAttribute('aria-labelledby','successTitle');
   $('continueBtn').focus();
@@ -502,7 +683,7 @@ $('placeOrder').addEventListener('click', () => {
 $('continueBtn').addEventListener('click', () => { closeDialog('checkoutDialog'); $('cartBtn').focus(); });
 $('newsletterForm').addEventListener('submit', event => { event.preventDefault(); $('newsletterMsg').textContent = t('thanks'); event.target.reset(); });
 document.querySelectorAll('dialog').forEach(dialog => {
-  dialog.addEventListener('close', () => { syncModalState(); if (dialog.id === 'checkoutDialog') $('cartBtn').focus(); });
+  dialog.addEventListener('close', () => { syncModalState(); if (dialog.id === 'checkoutDialog') { resetShipping(); $('cartBtn').focus(); } });
   dialog.addEventListener('click', event => {
     if (event.target !== dialog) return;
     const rect = dialog.getBoundingClientRect();

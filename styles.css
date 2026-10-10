@@ -1755,3 +1755,66 @@ html[lang=ko] h1 {
     animation:none!important;
   }
 }
+/* Guided delivery checkout: address entry stays transient and demo-only. */
+.checkout-dialog {
+  width: min(1000px, calc(100vw - 32px));
+  padding: 42px;
+}
+.checkout-dialog > #success { max-width: 480px; margin: 20px auto; }
+.checkout-progress { display:flex; list-style:none; padding:0; margin:24px 0; gap:28px; }
+.checkout-progress li { display:flex; align-items:center; gap:9px; font-size:12px; color:var(--muted); }
+.checkout-progress li > span:first-child { display:grid; place-items:center; width:27px; height:27px; border:1px solid var(--line); border-radius:50%; font-size:11px; }
+.checkout-progress li[aria-current=step] { color:var(--ink); font-weight:700; }
+.checkout-progress li[aria-current=step] > span:first-child { background:var(--ink); color:white; border-color:var(--ink); }
+.checkout-layout { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:34px; align-items:start; }
+.checkout-panels { min-width:0; }
+.checkout-dialog h2 { font-size:31px; margin-bottom:13px; }
+.step-intro { font-size:13px; color:var(--muted); margin-bottom:12px; }
+.sample-status { font-size:12px; color:var(--muted); margin:8px 0; }
+.shipping-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.shipping-field { display:flex; flex-direction:column; min-width:0; }
+.span-two { grid-column:1/-1; }
+.shipping-field label, .field-label { font-size:12px; font-weight:600; margin-bottom:7px; }
+.shipping-field input, .shipping-field textarea {
+  width:100%; min-width:0; border:1px solid #9ca490; border-radius:0;
+  background:white; padding:12px; color:var(--ink); font:inherit; font-size:16px; line-height:1.5;
+}
+.shipping-field textarea { resize:vertical; min-height:92px; }
+.shipping-field small { font-size:11px; color:var(--muted); line-height:1.6; margin-top:6px; }
+.shipping-field input[aria-invalid=true], .shipping-field textarea[aria-invalid=true] { border:2px solid #a12b33; }
+.field-error { color:#9a2630; font-size:12px; line-height:1.6; }
+.field-error:not(:empty) { margin-top:6px; }
+.form-errors:not(:empty) { padding:12px; border-left:3px solid #a12b33; background:#faece8; color:#87232b; font-size:13px; margin:14px 0; }
+#shippingForm fieldset { min-width:0; border:0; margin:25px 0; padding:0; }
+#shippingForm legend { font-family:var(--serif); font-size:21px; margin-bottom:17px; padding:0; }
+#shippingForm .text-btn { margin-top:8px; }
+.fixed-field { border:1px solid var(--line); background:#eeeede; padding:12px; font-size:14px; }
+.scope-note { font-size:11px; color:var(--muted); margin-top:-7px; }
+.checkout-summary { background:#eeede4; padding:23px; position:sticky; top:0; }
+.checkout-summary h3 { font-size:23px; margin-bottom:12px; }
+.bundle-contents { display:block; font-size:11px!important; line-height:1.7; color:var(--muted); margin-top:6px; font-weight:400; }
+.order-line > strong { flex:none; font-size:12px; }
+.cost-note { display:flex; justify-content:space-between; gap:16px; font-size:11px; color:var(--muted); margin-top:12px; }
+.cost-note > span:last-child { text-align:right; max-width:160px; }
+.delivery-review { margin:22px 0; padding:22px; border:1px solid var(--line); }
+.delivery-review h3 { font-size:21px; margin-bottom:18px; }
+#shippingSummary { font-size:14px; overflow-wrap:anywhere; }
+#shippingSummary p { margin:12px 0; }
+@media(max-width:760px) {
+  .checkout-dialog { padding:52px 24px 28px; }
+  .checkout-layout { display:flex; flex-direction:column; gap:26px; }
+  .checkout-panels, .checkout-summary { width:100%; }
+  .checkout-summary { position:static; }
+  .checkout-progress { gap:18px; }
+  .checkout-progress li { font-size:11px; gap:6px; }
+}
+@media(max-width:420px) {
+  .checkout-dialog { padding-inline:18px; }
+  .shipping-fields { grid-template-columns:1fr; }
+  .checkout-dialog h2 { font-size:27px; }
+  .checkout-progress { gap:12px; }
+}
+
+@media(max-width:760px) {
+  .checkout-layout.reviewing .checkout-summary { order:-1; }
+}

@@ -14,12 +14,12 @@ Open `http://localhost:8080`. There is no build step or runtime dependency.
 
 - Responsive editorial layout, distinct CSS packaging illustrations and the existing hero image.
 - Three gift-box concepts with explicit contents; six pantry products with category filters and price sorting.
-- Product details, persistent demo bag, quantity controls and a review/confirmation flow with no personal-data fields.
+- Product details, persistent demo bag, quantity controls and a guided delivery/address, review and confirmation flow.
 - Native modal dialogs, keyboard focus handling, accessible labels, reduced-motion support and a mobile navigation menu.
 - English/Korean page copy, metadata, social titles/descriptions, image alternatives and controls.
 - A readable English catalogue in the HTML when JavaScript is unavailable. Demo controls are disabled until the script loads.
 
-Only `veroLang` and `veroCart` are stored locally, when browser storage is available. Invalid or obsolete cart data is discarded. Newsletter input is reset locally; it is never saved or submitted by the demo. Google Fonts is an external font request; system font fallbacks remain available.
+Only `veroLang` and `veroCart` are stored locally, when browser storage is available. Invalid or obsolete cart data is discarded. Delivery fields are held only in the open checkout, rendered in an escaped review, and cleared when the checkout closes or completes. Use the fictional sample-data button to test safely. Newsletter input is reset locally; neither form saves or submits personal details. Google Fonts is an external font request; system font fallbacks remain available.
 
 ## Checks
 
@@ -36,7 +36,7 @@ Suggested browser review before merging:
 
 1. Check 360px, 768px and 1440px widths in English and Korean.
 2. Open/close the mobile menu, details, bag and checkout using keyboard and Escape.
-3. Filter/sort products, change quantities, remove the last item and finish a demo order.
+3. Filter/sort products, change quantities, remove the last item, fill delivery details (or use the fictional sample), review/edit the address and finish a demo order.
 4. Reload with Korean selected, with a populated bag and with browser storage unavailable.
 5. Disable JavaScript to inspect the readable static catalogue.
 
