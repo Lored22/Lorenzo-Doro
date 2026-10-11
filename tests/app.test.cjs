@@ -158,3 +158,33 @@ test('completion clears transient delivery details and the success copy promises
  assert.equal(app.stored.veroCart,'{}');assert.match(app.run('copy.en.successText'),/nothing will be shipped/);
  assert.equal(app.element('checkoutDialog').getAttribute('aria-labelledby'),'successTitle');
 });
+test('blocked storage supports language changes and a complete demo checkout',()=>{
+ const app=boot({},true);app.element('langBtn').listeners.click();
+ assert.equal(app.document.documentElement.lang,'ko');
+ app.run('cart={discovery:1};saveCart()');app.element('checkoutBtn').listeners.click();
+ app.element('useSample').listeners.click();app.element('shippingForm').listeners.submit({preventDefault(){}});
+ app.element('placeOrder').listeners.click();assert.equal(app.run('total()'),0);assert(!app.element('success').hidden);
+ assert.deepEqual(app.stored,{});
+});
+test('validation feedback changes language and clears as fields are corrected',()=>{
+ const app=boot();app.run('cart={date:1}');app.element('checkoutBtn').listeners.click();
+ app.element('shippingForm').listeners.submit({preventDefault(){}});
+ app.element('langBtn').listeners.click();assert.match(app.element('recipientError').textContent,/성함/);
+ app.element('recipient').value='Demo Guest';app.element('recipient').listeners.input();
+ assert.equal(app.element('recipientError').textContent,'');assert.equal(app.element('recipient').getAttribute('aria-invalid'),undefined);
+ app.element('useSample').listeners.click();assert.equal(app.element('formErrors').textContent,'');
+});
+test('a queued close event cannot erase a reopened checkout or steal modal focus',()=>{
+ const app=boot();app.run('cart={date:1}');app.element('checkoutBtn').listeners.click();app.element('useSample').listeners.click();
+ app.element('checkoutDialog').listeners.close();assert.equal(app.element('recipient').value,'Demo Guest');
+ app.run("closeDialog('checkoutDialog');openDialog('cartDialog')");
+ app.element('cartBtn').focus();app.element('checkoutDialog').listeners.close();
+ assert.equal(app.document.activeElement.id,'cartBtn');assert(app.element('cartDialog').open);
+});
+test('removing the last item disables checkout and restores the empty bag',()=>{
+ const app=boot();app.run('cart={sauce:1};renderCart()');
+ app.document.listeners.click({target:{closest:s=>s==='.site-header'?{}:s==='[data-remove]'?{dataset:{remove:'sauce'}}:null}});
+ assert.equal(app.run('total()'),0);assert(app.element('checkoutBtn').disabled);
+ assert.match(app.element('cartItems').innerHTML,/Your evening starts here/);
+ app.element('checkoutBtn').listeners.click();assert(!app.element('checkoutDialog').open);
+});

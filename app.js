@@ -486,7 +486,7 @@ function packaging(item, interactive = false) {
     <span class="visual-label">${t('collectionLabel')}</span>${interactive ? '<span class="visual-arrow" aria-hidden="true">↗</span>' : ''}</${tag}>`;
 }
 function cardMarkup(item) {
-  return `<article class="product-card">${packaging(item, true)}<div class="product-info"><h3>${escapeHTML(itemName(item))}</h3><p>${escapeHTML(itemDescription(item))}</p><button class="details-btn" data-detail="${item.id}">${t('details')} <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">${t('samplePrice')}</span><span class="price">${won(item.price)}</span></div><button class="add-btn" data-add="${item.id}" aria-label="${escapeHTML(t('add') + ': ' + itemName(item))}">${item.included ? t('chooseBox') : t('add')} <span aria-hidden="true">+</span></button></div></div></article>`;
+  return `<article class="product-card">${packaging(item, true)}<div class="product-info"><h3>${escapeHTML(itemName(item))}</h3><p>${escapeHTML(itemDescription(item))}</p><button class="details-btn" data-detail="${item.id}" aria-label="${escapeHTML(t('details') + ': ' + itemName(item))}">${t('details')} <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">${t('samplePrice')}</span><span class="price">${won(item.price)}</span></div><button class="add-btn" data-add="${item.id}" aria-label="${escapeHTML(t(item.included ? 'chooseBox' : 'add') + ': ' + itemName(item))}">${item.included ? t('chooseBox') : t('add')} <span aria-hidden="true">+</span></button></div></div></article>`;
 }
 function renderProducts() {
   const visible = products.filter(item => filter === 'all' || item.category === filter);
@@ -513,8 +513,20 @@ function toast(message) {
   toastTimer = setTimeout(() => $('toast').classList.remove('show'), 2400);
 }
 function syncModalState() { document.body.classList.toggle('modal-open', Boolean(document.querySelector('dialog[open]'))); }
-function openDialog(id) { closeMenu(); $(id).showModal(); syncModalState(); }
-function closeDialog(id) { $(id).close(); syncModalState(); }
+const dialogTriggers = new Map();
+function openDialog(id) {
+  closeMenu();
+  if ($(id).open) return;
+  dialogTriggers.set(id, document.activeElement);
+  $(id).showModal(); syncModalState();
+}
+function restoreDialogFocus(id) {
+  if (document.querySelector('dialog[open]')) return;
+  const trigger = dialogTriggers.get(id);
+  if (trigger && trigger.isConnected !== false && !trigger.disabled) trigger.focus();
+  else $('cartBtn').focus();
+}
+function closeDialog(id) { if (id === 'checkoutDialog') resetShipping(); $(id).close(); syncModalState(); }
 function renderDetail(id) {
   const item = findItem(id);
   if (!item) return;
@@ -547,11 +559,19 @@ function translate() {
   if (detailId) renderDetail(detailId);
   if ($('checkoutDialog').open) { renderOrder(); if (shippingDetails) renderShippingSummary(); }
   $('newsletterMsg').textContent = '';
+  renderShippingErrors();
 }
 function closeMenu() { $('mainNav').classList.remove('open'); $('menuBtn').setAttribute('aria-expanded', 'false'); }
 const shippingFields = ['recipient','phone','orderEmail','postcode','district','street','unit','deliveryNotes'];
 const shippingLimits = {recipient:80,phone:30,orderEmail:160,postcode:5,district:80,street:160,unit:100,deliveryNotes:200};
 let shippingDetails = null;
+let shippingErrors = {};
+function renderShippingErrors() {
+  for (const id of shippingFields) {
+    if (shippingErrors[id]) $(id + 'Error').textContent = t(shippingErrors[id]);
+  }
+  $('formErrors').textContent = Object.keys(shippingErrors).length ? t('formError') : '';
+}
 function readShippingFields() {
   return Object.fromEntries(shippingFields.map(id => [id, $(id).value.trim()]));
 }
@@ -568,6 +588,7 @@ function validateShipping(values) {
   return errors;
 }
 function clearFieldError(id) {
+  delete shippingErrors[id];
   $(id).removeAttribute('aria-invalid');
   $(id + 'Error').textContent = '';
 }
@@ -603,14 +624,14 @@ $('shippingForm').addEventListener('submit', event => {
   const errors = validateShipping(values);
   for (const id of shippingFields) {
     clearFieldError(id);
-    if (errors[id]) { $(id).setAttribute('aria-invalid','true'); $(id + 'Error').textContent = t(errors[id]); }
+    if (errors[id]) { shippingErrors[id] = errors[id]; $(id).setAttribute('aria-invalid','true'); $(id + 'Error').textContent = t(errors[id]); }
   }
   const invalid = Object.keys(errors);
   $('formErrors').textContent = invalid.length ? t('formError') : '';
   if (invalid.length) { $(invalid[0]).focus(); return; }
   shippingDetails = values; renderShippingSummary(); renderOrder(); setCheckoutStep('review');
 });
-for (const id of shippingFields) $(id).addEventListener('input', () => { clearFieldError(id); $('sampleStatus').textContent = ''; });
+for (const id of shippingFields) $(id).addEventListener('input', () => { clearFieldError(id); $('sampleStatus').textContent = ''; renderShippingErrors(); });
 $('backDelivery').addEventListener('click', () => setCheckoutStep('delivery'));
 $('backBag').addEventListener('click', () => { closeDialog('checkoutDialog'); openDialog('cartDialog'); });
 $('useSample').addEventListener('click', () => {
@@ -625,7 +646,20 @@ $('menuBtn').addEventListener('click', () => {
   $('menuBtn').setAttribute('aria-expanded', String(open));
   $('mainNav').classList.toggle('open', open);
 });
-$('mainNav').addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+$('mainNav').addEventListener('click', event => {
+  const link = event.target.closest('a');
+  if (!link) return;
+  closeMenu();
+  const href = link.getAttribute('href');
+  if (href?.startsWith('#')) {
+    const section = $(href.slice(1));
+    if (section) { section.setAttribute('tabindex', '-1'); section.focus({preventScroll:true}); }
+  }
+});
+if (typeof matchMedia === 'function') {
+  const mobileNavigation = matchMedia('(max-width: 800px)');
+  mobileNavigation.addEventListener('change', () => closeMenu());
+}
 document.addEventListener('keydown', event => { if (event.key === 'Escape' && $('mainNav').classList.contains('open')) { closeMenu(); $('menuBtn').focus(); } });
 document.addEventListener('click', event => {
   if (!event.target.closest('.site-header')) closeMenu();
@@ -683,7 +717,15 @@ $('placeOrder').addEventListener('click', () => {
 $('continueBtn').addEventListener('click', () => { closeDialog('checkoutDialog'); $('cartBtn').focus(); });
 $('newsletterForm').addEventListener('submit', event => { event.preventDefault(); $('newsletterMsg').textContent = t('thanks'); event.target.reset(); });
 document.querySelectorAll('dialog').forEach(dialog => {
-  dialog.addEventListener('close', () => { syncModalState(); if (dialog.id === 'checkoutDialog') { resetShipping(); $('cartBtn').focus(); } });
+  dialog.addEventListener('close', () => {
+    syncModalState();
+    // Native close events are queued: an old event must not clear a newly reopened checkout.
+    if (dialog.open) return;
+    if (dialog.id === 'checkoutDialog') resetShipping();
+    if (!document.querySelector('dialog[open]') &&
+        (!document.activeElement || document.activeElement === document.body ||
+         document.activeElement.isConnected === false || dialog.contains?.(document.activeElement))) restoreDialogFocus(dialog.id);
+  });
   dialog.addEventListener('click', event => {
     if (event.target !== dialog) return;
     const rect = dialog.getBoundingClientRect();

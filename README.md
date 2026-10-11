@@ -49,3 +49,22 @@ For GitHub Pages, select **GitHub Actions** in Settings → Pages. `.github/work
 The active language is a browser-local preference on one URL. This implementation does not create independently indexed Korean URLs or `hreflang` alternates. Canonical URLs and absolute social-image URLs should be configured only after confirming the intended public hostname.
 
 Before commercial launch, validate suppliers, ingredients, allergens, origin, Korean import and labelling requirements, taxes, prices, delivery, payments and privacy terms. Do not present this preview as an available ordering service.
+
+## QA acceptance matrix
+
+Run against the PR head, not the `main` Pages deployment. Record commit, browser/version, viewport height and width, language, PASS/FAIL and evidence. Every browser result remains **not run** until recorded by a tester.
+
+| Scenario | Source | Automated evidence (test order) | Browser acceptance |
+| --- | --- | --- | --- |
+| 360/768/1440 × EN/KO | styles.css, index.html, app.js | No rendered-layout coverage | All six combinations: full page, details, bag, delivery and review; no clipped text, overlapping controls or horizontal overflow. Checkout stacks at 900px; delivery fields stack at 540px. |
+| Language and metadata | app.js translate/pageMetadata/copy; index.html data-i18n | T1, T7; T14 validation feedback | Toggle EN/KO, inspect all metadata, labels and open states; reload retains language when storage works. |
+| Mobile menu | app.js closeMenu/listeners; styles.css 800px breakpoint | T6 aria-expanded and Escape | Touch/keyboard opening; Escape returns focus; link and outside click close; resizing resets open state; anchor destination receives focus. |
+| Native dialogs | index.html dialog; app.js openDialog/close; styles.css | DOM simulation only; T15 queued close regression | Tab/Shift+Tab stay inside, background inert, Escape/X/backdrop close, focus returns sensibly, tall content scrolls. |
+| Filters/sort and box contents | app.js renderProducts/renderDetail/boxes | T3 subset/order samples; T4 Discovery KO; T9 bundle progression | Every filter/sort; 2/5/6 box contents consistent in cards/details/bag/review; EN/KO. |
+| Bag/quantities/empty state | app.js renderCart/saveCart | T5 totals, persistence, limit; T16 last removal | Quantity controls keep focus; remove final item; empty state and disabled checkout; reload populated bag. |
+| Delivery/review/edit/complete | app.js validation, step transitions, resetShipping; index.html shippingForm | T9–T12; T14 errors | Required-field errors and correction, fictional sample, review/edit, back to bag, X/Escape/backdrop clearing, complete/reopen. No real payable total, payment or shipment. |
+| Blocked/corrupt storage | app.js storage/readCart/sanitizeCart | T2 startup/corrupt/stale data; T13 complete flow with reads/writes throwing | Actually deny reads and writes, then language/bag/checkout; no crash. Reload persistence is not expected while blocked. Incognito alone is not this test. |
+| No JavaScript | index.html static catalogue; styles.css html:not(.js) | T7 nine static cards; T8 IDs/anchors/assets | Reload with JS disabled at all widths; readable English catalogue, visible section navigation, working FAQ/anchors, disabled demo controls. |
+| Assistive technology/network | labels, live regions, CSS focus/reduced-motion/forced-colors | T6 local newsletter; T8 static form checks; T11–T12 personal-data clearing | Screen-reader announcements, visible focus, reduced motion/high contrast, form submission has no outbound request or personal storage. |
+
+Automated checks use a small DOM adapter, not a browser. They do not certify viewport layout, native dialog focus trapping, screen-reader behavior or network traffic. Keep the PR in draft until the real-browser acceptance review is recorded.

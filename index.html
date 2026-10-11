@@ -33,7 +33,7 @@
     <div class="header-actions">
       <button disabled id="langBtn" class="text-btn" lang="ko" aria-label="Switch to Korean">한국어</button>
       <button disabled id="cartBtn" class="bag-btn" aria-label="Open demo bag" data-i18n-aria="openBag" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg><span class="bag-label" data-i18n="cart">Bag</span><span id="cartCount">0</span></button>
-      <button disabled id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="mainNav"><span data-i18n="menu">Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+      <button disabled id="menuBtn" class="menu-btn" aria-label="Menu" data-i18n-aria="menu" aria-expanded="false" aria-controls="mainNav"><span data-i18n="menu">Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
     </div>
   </header>
   <main id="main" tabindex="-1">
@@ -81,12 +81,12 @@
   <noscript><p class="noscript-note">You can browse this concept without JavaScript. Enable JavaScript to switch language or try the demo bag. 자바스크립트를 활성화하면 언어 변경과 데모 장바구니를 이용할 수 있습니다.</p></noscript>
   <dialog id="cartDialog" class="cart-dialog" aria-labelledby="bagTitle"><div class="dialog-head"><div><p class="eyebrow" data-i18n="demoNote">Partner preview · No real purchases</p><h2 id="bagTitle" data-i18n="yourBag">Your demo bag</h2></div><button class="close" data-close="cartDialog" aria-label="Close" data-i18n-aria="close" autofocus>×</button></div><div id="cartItems" class="cart-items"></div><p id="bagStatus" class="sr-only" role="status"></p><div class="cart-footer"><div class="subtotal"><span data-i18n="subtotal">Sample subtotal</span><strong id="subtotal">₩0</strong></div><p data-i18n="bagNote">Next: enter a delivery address, then review your selection. Sample prices only; no real payment or shipment.</p><button id="checkoutBtn" class="button dark full" data-i18n="checkout">Continue to delivery</button><button class="text-btn full" data-close="cartDialog" data-i18n="continue">Back to the collection</button></div></dialog>
   <dialog id="productDialog" class="product-dialog" aria-labelledby="detailTitle"><button class="close" data-close="productDialog" aria-label="Close" data-i18n-aria="close" autofocus>×</button><div id="productDetail"></div></dialog>
-<dialog id="checkoutDialog" class="checkout-dialog" aria-labelledby="shippingTitle">
+<dialog id="checkoutDialog" class="checkout-dialog" aria-labelledby="shippingTitle" aria-describedby="checkoutNotice">
   <button class="close" data-close="checkoutDialog" aria-label="Close" data-i18n-aria="close">×</button>
   <div id="checkoutFormWrap">
     <p class="eyebrow" data-i18n="checkoutEyebrow">Your evening, step by step</p>
     <ol class="checkout-progress" aria-label="Checkout progress" data-i18n-aria="progressLabel"><li><span aria-hidden="true">✓</span><span data-i18n="stepBag">Bag</span></li><li id="stepDelivery" aria-current="step"><span aria-hidden="true">2</span><span data-i18n="stepDelivery">Delivery</span></li><li id="stepReview" aria-current="false"><span aria-hidden="true">3</span><span data-i18n="stepReview">Review</span></li></ol>
-    <p class="preview-label" data-i18n="checkoutNote">Delivery simulation only. Use fictional details to try the form. They stay in memory only while this checkout is open and are never saved or sent.</p>
+    <p id="checkoutNotice" class="preview-label" data-i18n="checkoutNote">Delivery simulation only. Use fictional details to try the form. They stay in memory only while this checkout is open and are never saved or sent.</p>
     <div class="checkout-layout"><div class="checkout-panels">
       <section id="shippingStep" aria-labelledby="shippingTitle"><h2 id="shippingTitle" tabindex="-1" data-i18n="shippingTitle">Delivery details</h2><p class="step-intro" data-i18n="shippingIntro">Enter the recipient and a complete Seoul address. Fields marked * are required.</p><button id="useSample" class="text-link" type="button" data-i18n="useSample">Use fictional sample details</button><p id="sampleStatus" class="sample-status" role="status"></p>
         <form id="shippingForm" method="dialog" novalidate autocomplete="off"><p id="formErrors" class="form-errors" role="alert"></p>

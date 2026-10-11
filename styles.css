@@ -1800,7 +1800,7 @@ html[lang=ko] h1 {
 .delivery-review h3 { font-size:21px; margin-bottom:18px; }
 #shippingSummary { font-size:14px; overflow-wrap:anywhere; }
 #shippingSummary p { margin:12px 0; }
-@media(max-width:760px) {
+@media(max-width:900px) {
   .checkout-dialog { padding:52px 24px 28px; }
   .checkout-layout { display:flex; flex-direction:column; gap:26px; }
   .checkout-panels, .checkout-summary { width:100%; }
@@ -1815,6 +1815,32 @@ html[lang=ko] h1 {
   .checkout-progress { gap:12px; }
 }
 
-@media(max-width:760px) {
+@media(max-width:900px) {
   .checkout-layout.reviewing .checkout-summary { order:-1; }
+}
+
+/* Resilient reading, touch targets and no-script navigation. */
+html { scrollbar-gutter:stable; }
+textarea { font:inherit; touch-action:manipulation; }
+.menu-btn, .details-btn, .text-link, .text-btn, .sort select { min-height:44px; }
+.menu-btn { min-width:44px; }
+.product-info, .cart-line > div, .order-line > div { min-width:0; overflow-wrap:anywhere; }
+.checkout-progress { flex-wrap:wrap; }
+.checkout-summary { overflow-wrap:anywhere; }
+dialog { overflow-y:auto; }
+#useSample { display:block; padding:12px 16px; border:1px solid var(--line); background:#eeede4; text-align:left; }
+#shippingForm button[type=submit] { margin-top:16px; }
+@media(max-width:540px) {
+  .shipping-fields { grid-template-columns:1fr; }
+  .cart-controls { flex-wrap:wrap; gap:10px; }
+}
+@media(max-width:800px) {
+  html:not(.js) .site-header { height:auto; min-height:76px; padding-block:16px; }
+  html:not(.js) .site-header nav { display:flex; position:static; grid-column:1/-1; grid-row:2; flex-wrap:wrap; padding:12px 0 0; box-shadow:none; gap:8px 20px; }
+  html:not(.js) .site-header nav a { font-size:14px; }
+  html:not(.js) .menu-btn { display:none; }
+}
+@media(forced-colors:active) {
+  .button, .add-btn, .qty, .filters button, .fixed-field { border:1px solid ButtonText; }
+  :focus-visible { outline:3px solid Highlight; }
 }
