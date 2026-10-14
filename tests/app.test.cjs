@@ -22,7 +22,7 @@ function boot(saved = {}, blocked = false) {
     }
     return elements.get(key);
   }
-  const dialogs=['cartDialog','productDialog','checkoutDialog'].map(element);
+  const dialogs=['productDialog'].map(element);
   const filters=['all','truffle','table'].map(id=>{const e=element('filter-'+id);e.dataset.filter=id;return e;});
   const document = {
     documentElement: element('html'), body: element('body'), listeners: {},
@@ -35,9 +35,13 @@ function boot(saved = {}, blocked = false) {
     addEventListener(k,f) { this.listeners[k] = f; }
   };
   const stored={...saved};
-  const context=vm.createContext({document,location:{hash:''},localStorage:{getItem(k){if(blocked)throw Error('blocked');return stored[k]??null;},setItem(k,v){if(blocked)throw Error('blocked');stored[k]=v;}},setTimeout:()=>1,clearTimeout(){}});
+  const location={hash:''};
+  const window={listeners:{},scrollTo(){},addEventListener(k,f){this.listeners[k]=f;}};
+  const stack=[''];let position=0;
+  const history={pushState(state,title,url){location.hash=url;stack.splice(++position);stack[position]=url;},replaceState(state,title,url){location.hash=url;stack[position]=url;},back(){if(position>0){location.hash=stack[--position];window.listeners.popstate?.();}}};
+  const context=vm.createContext({document,location,window,history,localStorage:{getItem(k){if(blocked)throw Error('blocked');return stored[k]??null;},setItem(k,v){if(blocked)throw Error('blocked');stored[k]=v;}},setTimeout:()=>1,clearTimeout(){}});
   vm.runInContext(source,context);
-  return {context,document,element,stored,run:code=>vm.runInContext(code,context)};
+  return {context,document,element,stored,location,history,window,run:code=>vm.runInContext(code,context)};
 }
 test('English fallback and social metadata stay aligned; KO persists and toggles back',()=>{
  const app=boot();
@@ -148,7 +152,7 @@ test('delivery review escapes user input, preserves edits and never persists per
  app.element('street').value='456 Updated-ro';app.element('shippingForm').listeners.submit({preventDefault(){}});
  assert.match(app.element('shippingSummary').innerHTML,/456 Updated-ro/);
  assert(!JSON.stringify(app.stored).includes('demo@example.com'));
- app.element('checkoutDialog').close();assert.equal(app.element('recipient').value,'');assert.equal(app.element('street').value,'');assert.equal(app.element('shippingSummary').textContent,'');assert.equal(app.run('shippingDetails'),null);
+ app.run("closeDialog('checkoutDialog')");assert.equal(app.element('recipient').value,'');assert.equal(app.element('street').value,'');assert.equal(app.element('shippingSummary').textContent,'');assert.equal(app.run('shippingDetails'),null);
  assert.equal(app.run('total()'),94900);
 });
 test('completion clears transient delivery details and the success copy promises no shipment',()=>{
@@ -174,12 +178,12 @@ test('validation feedback changes language and clears as fields are corrected',(
  assert.equal(app.element('recipientError').textContent,'');assert.equal(app.element('recipient').getAttribute('aria-invalid'),undefined);
  app.element('useSample').listeners.click();assert.equal(app.element('formErrors').textContent,'');
 });
-test('a queued close event cannot erase a reopened checkout or steal modal focus',()=>{
- const app=boot();app.run('cart={date:1}');app.element('checkoutBtn').listeners.click();app.element('useSample').listeners.click();
- app.element('checkoutDialog').listeners.close();assert.equal(app.element('recipient').value,'Demo Guest');
- app.run("closeDialog('checkoutDialog');openDialog('cartDialog')");
- app.element('cartBtn').focus();app.element('checkoutDialog').listeners.close();
- assert.equal(app.document.activeElement.id,'cartBtn');assert(app.element('cartDialog').open);
+test('a queued product-dialog close cannot steal focus from a shopping page',()=>{
+ const app=boot();app.element('cartBtn').focus();app.run("renderDetail('date');openDialog('productDialog')");
+ app.run('cart={date:1}');app.run("closeDialog('productDialog');openDialog('cartDialog')");
+ app.element('bagTitle').focus();app.element('productDialog').listeners.close();
+ assert.equal(app.document.activeElement.id,'bagTitle');assert(app.element('cartDialog').open);
+ assert.equal(app.element('productDialog').open,false);
 });
 test('removing the last item disables checkout and restores the empty bag',()=>{
  const app=boot();app.run('cart={sauce:1};renderCart()');
@@ -224,4 +228,48 @@ test('translation dictionaries and static label/ARIA references are complete',()
    } else assert(ids.has(id),`Missing label/ARIA target ${id}`);
   }
  }
+});
+
+test('box cards expose all contents before opening details and use the same action label',()=>{
+ const app=boot();
+ for(const lang of ['en','ko']) {
+  app.run(`lang='${lang}';translate()`);
+  const cards=app.element('boxGrid').innerHTML;
+  assert.equal((cards.match(/class="box-contents"/g)||[]).length,3);
+  assert.equal((cards.match(/<li>/g)||[]).length,13);
+  assert(cards.includes(app.run('copy[lang].chooseBox')));
+ }
+ assert.equal((html.match(/class="box-contents"/g)||[]).length,3);
+ assert(html.indexOf('id="boxes"')<html.indexOf('id="how"'));
+ assert(html.indexOf('id="how"')<html.indexOf('id="pantry"'));
+ assert(html.indexOf('id="pantry"')<html.indexOf('id="story"'));
+});
+test('delivery survives bag edits but is cleared on leaving and starting again',()=>{
+ const app=boot();app.run('cart={date:1}');app.element('cartBtn').listeners.click();app.element('checkoutBtn').listeners.click();
+ app.element('useSample').listeners.click();app.element('shippingForm').listeners.submit({preventDefault(){}});
+ app.element('backDelivery').listeners.click();app.element('backBag').listeners.click();
+ assert.equal(app.element('recipient').value,'Demo Guest');assert(app.element('checkoutDialog').hidden);
+ app.run('cart.date=2;saveCart()');app.element('checkoutBtn').listeners.click();
+ assert.equal(app.element('recipient').value,'Demo Guest');
+ app.element('shippingForm').listeners.submit({preventDefault(){}});assert.match(app.element('orderSummary').innerHTML,/× 2/);
+ app.run("closeDialog('checkoutDialog')");assert.equal(app.element('recipient').value,'');assert.equal(app.run('shippingDetails'),null);
+ assert(app.element('shoppingFlow').hidden);assert.equal(app.element('main').hidden,false);
+ app.element('cartBtn').listeners.click();app.element('checkoutBtn').listeners.click();assert.equal(app.element('recipient').value,'');
+});
+test('browser back navigates review, delivery and bag without losing input; exit clears it',()=>{
+ const app=boot();app.run('cart={discovery:1}');app.element('cartBtn').listeners.click();app.element('checkoutBtn').listeners.click();
+ assert.equal(app.location.hash,'#shop-delivery');
+ app.element('useSample').listeners.click();app.element('shippingForm').listeners.submit({preventDefault(){}});
+ assert.equal(app.location.hash,'#shop-review');app.history.back();assert.equal(app.location.hash,'#shop-delivery');
+ assert.equal(app.element('reviewStep').hidden,true);assert.equal(app.element('recipient').value,'Demo Guest');
+ app.history.back();assert.equal(app.location.hash,'#shop-bag');assert(app.element('cartDialog').open);
+ app.history.back();assert(app.element('shoppingFlow').hidden);assert.equal(app.element('recipient').value,'');
+});
+test('shopping uses nonmodal page sections and only the product detail is a native dialog',()=>{
+ assert.equal((html.match(/<dialog\b/g)||[]).length,1);
+ assert.match(html,/<section id="cartDialog"[^>]*hidden/);assert.match(html,/<section id="checkoutDialog"[^>]*hidden/);
+ const app=boot();app.element('cartBtn').listeners.click();
+ assert(app.element('main').hidden);assert(app.element('siteFooter').hidden);assert.equal(app.element('shoppingFlow').hidden,false);
+ assert.equal(app.element('skipLink').getAttribute('href'),'#shoppingFlow');
+ app.run("closeDialog('cartDialog')");assert.equal(app.element('skipLink').getAttribute('href'),'#main');
 });

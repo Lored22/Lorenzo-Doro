@@ -127,9 +127,9 @@ const copy = {
     "navStory": "Our story",
     "cart": "Bag",
     "heroEyebrow": "A little Italy. A slower evening.",
-    "heroTitle": "Good food.<br>Better company.",
-    "heroText": "Six pantry favourites. Three thoughtfully composed boxes. An Italian-inspired table, imagined for Seoul.",
-    "heroCta": "Find your evening",
+    "heroTitle": "Italian pantry.<br>Ready to share.",
+    "heroText": "Choose from three Italian gift-box concepts for Seoul. Compare exactly what is inside, then try the delivery journey.",
+    "heroCta": "Compare the boxes",
     "heroNote": "Collection No. 01 / The Italian evening",
     "introEyebrow": "The Vero philosophy",
     "introTitle": "Less to choose.<br>More to savour.",
@@ -141,16 +141,16 @@ const copy = {
     "pillar3Title": "An evening to give",
     "pillar3Text": "Gift-box concepts for a first taste, a date night or a generous table.",
     "boxesEyebrow": "01 / The collection",
-    "boxesTitle": "What kind of evening?",
-    "boxesText": "Start small or make an occasion of it. Explore three gift-box concepts, with sample prices in Korean won.",
+    "boxesTitle": "Find the box for your evening.",
+    "boxesText": "Three occasions. Clear contents and sample prices. Choose a box, or explore individual products below.",
     "ritualEyebrow": "03 / At the table",
     "ritualTitle": "A little truffle.<br>A little time.",
     "step1": "Boil the pasta until al dente.",
     "step2": "Loosen the sauce with a spoon of pasta water.",
     "step3": "Finish with truffle salt. Put the phones away.",
     "pantryEyebrow": "02 / The essentials",
-    "pantryTitle": "A small pantry.<br>Endless possibilities.",
-    "pantryText": "Meet the six pieces behind the collection. Every product and package shown is illustrative.",
+    "pantryTitle": "Prefer to choose separately?",
+    "pantryText": "Explore the six individual products. You can add them to the same demo bag.",
     "storyEyebrow": "Italy → Seoul",
     "storyTitle": "Two places.<br>One shared table.",
     "storyText": "Vero Seoul is an idea for bringing regional Italian specialities to curious Korean tables. Origin, flavour and the pleasure of sharing guide the concept. The collection is a starting point for conversations with future partners.",
@@ -193,7 +193,7 @@ const copy = {
     "heroAlt": "Illustrative Italian pantry collection with pasta, truffle and a gift box on a stone table",
     "emailPlaceholder": "Your email address",
     "samplePrice": "Sample price",
-    "details": "Discover what’s inside",
+    "details": "View details",
     "collectionLabel": "Concept packaging",
     "included": "Inside this box",
     "productNote": "Concept product. Ingredients, allergens, origin and shelf life will be confirmed with suppliers before launch.",
@@ -202,8 +202,8 @@ const copy = {
     "emptyText": "Choose a box or a pantry favourite to try the demo.",
     "increase": "Increase quantity",
     "decrease": "Decrease quantity",
-    "bagNote": "Next: enter a delivery address, then review your selection. Sample prices only; no real payment or shipment.",
-    "checkoutNote": "Delivery simulation only. Use fictional details to try the form. They stay in memory only while this checkout is open and are never saved or sent.",
+    "bagNote": "Check the contents and quantities. Next: delivery details, then review. No real payment or shipment.",
+    "checkoutNote": "Delivery simulation only. Use fictional details. They stay in memory while you edit your bag and delivery details, and are cleared when you leave or finish the shopping journey.",
     "all": "All six",
     "truffle": "Truffle",
     "table": "For the table",
@@ -221,11 +221,11 @@ const copy = {
     "faq3": "Are delivery and imports confirmed?",
     "answer3": "No. Suppliers, Korean import requirements, final labels and delivery arrangements must be confirmed before a commercial launch.",
     "faq4": "What happens to my data?",
-    "answer4": "The demo remembers only your language and bag in this browser when storage is available. Delivery details are used only to show the current checkout summary and are cleared when it closes or finishes. No email, address or payment data is saved or sent by the demo forms.",
+    "answer4": "Only your language and bag can be remembered in this browser. Delivery details stay in memory while you edit your selection, and are cleared when you leave or finish the shopping journey. No personal details are saved or sent by the demo forms.",
     "limit": "You can add up to 99 of each item in this demo.",
     "removed": "Removed from your demo bag",
-    "chooseBox": "Choose this box",
-    "bundleContinue": "Add box & continue",
+    "chooseBox": "Add box to bag",
+    "bundleContinue": "Add box to bag",
     "stepBag": "Bag",
     "stepDelivery": "Delivery",
     "stepReview": "Review",
@@ -276,7 +276,21 @@ const copy = {
     "postcodeError": "Enter a 5-digit postal code.",
     "districtError": "Enter the district, such as Gangbuk-gu.",
     "streetError": "Enter the street name and building number.",
-    "lengthError": "This entry is too long. Please shorten it."
+    "lengthError": "This entry is too long. Please shorten it.",
+    "howEyebrow": "A clear path",
+    "howTitle": "Three simple steps.",
+    "howNote": "Try the journey with fictional details. This preview does not take payments or place orders.",
+    "howChoose": "Choose your box",
+    "howChooseText": "Compare the contents and sample prices.",
+    "howDelivery": "Add delivery details",
+    "howDeliveryText": "Enter the recipient and Seoul address.",
+    "howReview": "Review and confirm",
+    "howReviewText": "Check your selection before finishing the demo.",
+    "contentsCount": "products included",
+    "addInstructions": "Add delivery instructions (optional)",
+    "bagSaved": "Your delivery details are kept while you edit this bag. They are cleared when you leave the shopping journey.",
+    "quantityUpdated": "Quantity updated",
+    "itemAdded": "Added to bag"
   },
   "ko": {
     "announcement": "서울을 위한 이탈리안 아이디어 · 파트너 프리뷰",
@@ -285,9 +299,9 @@ const copy = {
     "navStory": "브랜드 스토리",
     "cart": "장바구니",
     "heroEyebrow": "이탈리아의 맛. 여유로운 저녁.",
-    "heroTitle": "맛있는 음식.<br>더 좋은 사람들.",
-    "heroText": "여섯 가지 팬트리 제품과 세 가지 기프트 박스. 서울의 테이블을 위해 그려본 이탈리안 다이닝 콘셉트입니다.",
-    "heroCta": "나에게 맞는 박스 찾기",
+    "heroTitle": "이탈리안 팬트리.<br>함께 나누는 즐거움.",
+    "heroText": "서울을 위한 이탈리안 기프트 박스 콘셉트 3종. 구성을 비교하고 배송 정보 입력부터 확인까지 체험해 보세요.",
+    "heroCta": "박스 비교하기",
     "heroNote": "컬렉션 No. 01 / 이탈리안 이브닝",
     "introEyebrow": "베로의 철학",
     "introTitle": "선택은 간결하게.<br>즐거움은 풍성하게.",
@@ -299,16 +313,16 @@ const copy = {
     "pillar3Title": "저녁을 선물하다",
     "pillar3Text": "첫 만남, 데이트 나이트, 풍성한 테이블을 위한 기프트 박스 콘셉트.",
     "boxesEyebrow": "01 / 컬렉션",
-    "boxesTitle": "어떤 저녁을 원하세요?",
-    "boxesText": "가볍게 시작하거나 특별한 시간을 만들어보세요. 원화 예시 가격과 함께 세 가지 기프트 박스 콘셉트를 소개합니다.",
+    "boxesTitle": "오늘 저녁에 어울리는 박스를 찾아보세요.",
+    "boxesText": "세 가지 테마, 명확한 구성과 예시 가격. 박스를 선택하거나 아래에서 개별 제품을 살펴보세요.",
     "ritualEyebrow": "03 / 테이블에서",
     "ritualTitle": "트러플 한 스푼.<br>여유 한 스푼.",
     "step1": "파스타를 알 덴테로 삶아주세요.",
     "step2": "면수 한 스푼으로 소스를 부드럽게 풀어주세요.",
     "step3": "트러플 소금으로 마무리하고, 휴대폰은 잠시 내려놓으세요.",
     "pantryEyebrow": "02 / 에센셜",
-    "pantryTitle": "작은 팬트리.<br>다양한 가능성.",
-    "pantryText": "컬렉션을 구성하는 여섯 가지 제품을 만나보세요. 모든 제품과 패키지는 콘셉트 예시입니다.",
+    "pantryTitle": "하나씩 고르고 싶으신가요?",
+    "pantryText": "개별 제품 6종을 살펴보세요. 같은 데모 장바구니에 담을 수 있습니다.",
     "storyEyebrow": "이탈리아 → 서울",
     "storyTitle": "두 도시의 감성.<br>하나의 테이블.",
     "storyText": "베로 서울은 이탈리아 지역 특산품을 한국의 호기심 많은 테이블에 소개하기 위한 아이디어입니다. 원산지, 맛, 함께 나누는 즐거움을 중심으로 미래의 파트너들과 대화를 시작하고자 합니다.",
@@ -351,7 +365,7 @@ const copy = {
     "heroAlt": "돌 테이블 위 파스타, 트러플, 기프트 박스로 구성한 이탈리안 팬트리 콘셉트 이미지",
     "emailPlaceholder": "이메일 주소",
     "samplePrice": "예시 가격",
-    "details": "구성 자세히 보기",
+    "details": "자세히 보기",
     "collectionLabel": "패키지 콘셉트",
     "included": "박스 구성",
     "productNote": "콘셉트 제품입니다. 성분, 알레르기 정보, 원산지 및 유통기한은 출시 전 공급업체와 확인할 예정입니다.",
@@ -360,8 +374,8 @@ const copy = {
     "emptyText": "박스나 팬트리 제품을 선택해 데모를 체험해 보세요.",
     "increase": "수량 늘리기",
     "decrease": "수량 줄이기",
-    "bagNote": "다음 단계에서 배송 주소를 입력하고 선택한 제품을 확인합니다. 가격은 예시이며 실제 결제나 배송은 없습니다.",
-    "checkoutNote": "배송 과정 시뮬레이션입니다. 가상 정보로 체험해 보세요. 입력한 정보는 이 화면을 이용하는 동안에만 유지되며 저장하거나 전송하지 않습니다.",
+    "bagNote": "구성과 수량을 확인해 주세요. 다음은 배송 정보 입력과 최종 확인입니다. 실제 결제나 배송은 없습니다.",
+    "checkoutNote": "배송 정보 입력 데모입니다. 가상 정보를 사용해 주세요. 장바구니와 배송 정보를 수정하는 동안 메모리에만 유지되며, 쇼핑 과정을 나가거나 완료하면 삭제됩니다.",
     "all": "전체",
     "truffle": "트러플",
     "table": "테이블을 위해",
@@ -379,11 +393,11 @@ const copy = {
     "faq3": "배송과 수입 절차가 확정되었나요?",
     "answer3": "아닙니다. 공급업체, 한국 수입 요건, 최종 라벨 및 배송 방식은 정식 출시 전에 확정해야 합니다.",
     "faq4": "개인정보는 어떻게 처리되나요?",
-    "answer4": "저장 기능을 사용할 수 있는 경우 이 브라우저에 언어와 장바구니만 기억합니다. 배송 정보는 현재 주문 요약을 보여주는 데만 사용하며 화면을 닫거나 완료하면 지워집니다. 이메일, 주소 또는 결제 정보는 저장하거나 전송하지 않습니다.",
+    "answer4": "이 브라우저에 언어와 장바구니만 저장될 수 있습니다. 배송 정보는 선택한 상품을 수정하는 동안 메모리에만 유지되며, 쇼핑 과정을 나가거나 완료하면 삭제됩니다. 데모 양식은 개인정보를 저장하거나 전송하지 않습니다.",
     "limit": "데모에서는 제품당 최대 99개까지 담을 수 있습니다.",
     "removed": "데모 장바구니에서 삭제했습니다",
-    "chooseBox": "이 박스 선택",
-    "bundleContinue": "박스 담고 계속하기",
+    "chooseBox": "박스 담기",
+    "bundleContinue": "박스 담기",
     "stepBag": "장바구니",
     "stepDelivery": "배송 정보",
     "stepReview": "최종 확인",
@@ -434,7 +448,21 @@ const copy = {
     "postcodeError": "5자리 우편번호를 입력해 주세요.",
     "districtError": "강북구와 같이 구 이름을 입력해 주세요.",
     "streetError": "도로명과 건물번호를 입력해 주세요.",
-    "lengthError": "입력한 내용이 너무 깁니다. 짧게 입력해 주세요."
+    "lengthError": "입력한 내용이 너무 깁니다. 짧게 입력해 주세요.",
+    "howEyebrow": "간단한 이용 방법",
+    "howTitle": "간단한 세 단계.",
+    "howNote": "가상 정보로 체험해 보세요. 실제 결제나 주문은 이루어지지 않습니다.",
+    "howChoose": "박스 선택",
+    "howChooseText": "구성과 예시 가격을 비교하세요.",
+    "howDelivery": "배송 정보 입력",
+    "howDeliveryText": "받는 분과 서울 주소를 입력하세요.",
+    "howReview": "확인 및 완료",
+    "howReviewText": "선택한 상품을 확인하고 데모를 완료하세요.",
+    "contentsCount": "종 구성",
+    "addInstructions": "배송 요청사항 추가 (선택)",
+    "bagSaved": "장바구니를 수정하는 동안 배송 정보가 유지됩니다. 쇼핑 과정을 나가면 삭제됩니다.",
+    "quantityUpdated": "수량이 변경되었습니다",
+    "itemAdded": "장바구니에 담았습니다"
   }
 };
 
@@ -486,7 +514,7 @@ function packaging(item, interactive = false) {
     <span class="visual-label">${t('collectionLabel')}</span>${interactive ? '<span class="visual-arrow" aria-hidden="true">↗</span>' : ''}</${tag}>`;
 }
 function cardMarkup(item) {
-  return `<article class="product-card">${packaging(item, true)}<div class="product-info"><h3>${escapeHTML(itemName(item))}</h3><p>${escapeHTML(itemDescription(item))}</p><button class="details-btn" data-detail="${item.id}" aria-label="${escapeHTML(t('details') + ': ' + itemName(item))}">${t('details')} <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">${t('samplePrice')}</span><span class="price">${won(item.price)}</span></div><button class="add-btn" data-add="${item.id}" aria-label="${escapeHTML(t(item.included ? 'chooseBox' : 'add') + ': ' + itemName(item))}">${item.included ? t('chooseBox') : t('add')} <span aria-hidden="true">+</span></button></div></div></article>`;
+  return `<article class="product-card">${packaging(item, true)}<div class="product-info"><h3>${escapeHTML(itemName(item))}</h3><p>${escapeHTML(itemDescription(item))}</p>${item.included ? `<p class="box-contents-label">${item.included.length} ${t('contentsCount')}</p><ul class="box-contents">${item.included.map(id => `<li>${escapeHTML(itemName(findItem(id)))}</li>`).join('')}</ul>` : ''}<button class="details-btn" data-detail="${item.id}" aria-label="${escapeHTML(t('details') + ': ' + itemName(item))}">${t('details')} <span aria-hidden="true">↗</span></button><div class="product-bottom"><div><span class="price-label">${t('samplePrice')}</span><span class="price">${won(item.price)}</span></div><button class="add-btn" data-add="${item.id}" aria-label="${escapeHTML(t(item.included ? 'chooseBox' : 'add') + ': ' + itemName(item))}">${item.included ? t('chooseBox') : t('add')} <span aria-hidden="true">+</span></button></div></div></article>`;
 }
 function renderProducts() {
   const visible = products.filter(item => filter === 'all' || item.category === filter);
@@ -512,21 +540,50 @@ function toast(message) {
   $('toast').classList.add('show');
   toastTimer = setTimeout(() => $('toast').classList.remove('show'), 2400);
 }
+let activeShoppingId = null;
+let editingBag = false;
 function syncModalState() { document.body.classList.toggle('modal-open', Boolean(document.querySelector('dialog[open]'))); }
+function shoppingRoute(route, replace = false) {
+  if (typeof history === 'undefined') return;
+  const hash = route ? '#shop-' + route : '#boxes';
+  if (location.hash === hash) return;
+  history[replace ? 'replaceState' : 'pushState']({veroShopping: route}, '', hash);
+}
+function showShopping(id, route = true) {
+  closeMenu();
+  for (const page of ['cartDialog', 'checkoutDialog']) { $(page).hidden = page !== id; $(page).open = page === id; }
+  activeShoppingId = id;
+  $('main').hidden = true; $('siteFooter').hidden = true; $('shoppingFlow').hidden = false;
+  document.body.classList.add('shopping-open');
+  $('skipLink').setAttribute('href', '#shoppingFlow');
+  if (route) shoppingRoute(id === 'cartDialog' ? 'bag' : $('success').hidden ? $('reviewStep').hidden ? 'delivery' : 'review' : 'complete');
+  if (typeof window !== 'undefined') window.scrollTo({top:0, behavior:'instant'});
+}
+function exitShopping(updateRoute = true) {
+  for (const page of ['cartDialog', 'checkoutDialog']) { $(page).hidden = true; $(page).open = false; }
+  activeShoppingId = null; editingBag = false; resetShipping();
+  $('shoppingFlow').hidden = true; $('main').hidden = false; $('siteFooter').hidden = false;
+  document.body.classList.remove('shopping-open');
+  $('skipLink').setAttribute('href', '#main');
+  if (updateRoute) shoppingRoute(null, true);
+  $('cartBtn').focus();
+}
+
 const dialogTriggers = new Map();
 function openDialog(id) {
   closeMenu();
   if ($(id).open) return;
+  if (id !== 'productDialog') { showShopping(id); return; }
   dialogTriggers.set(id, document.activeElement);
   $(id).showModal(); syncModalState();
 }
 function restoreDialogFocus(id) {
-  if (document.querySelector('dialog[open]')) return;
+  if (activeShoppingId || document.querySelector('dialog[open]')) return;
   const trigger = dialogTriggers.get(id);
   if (trigger && trigger.isConnected !== false && !trigger.disabled) trigger.focus();
   else $('cartBtn').focus();
 }
-function closeDialog(id) { if (id === 'checkoutDialog') resetShipping(); $(id).close(); syncModalState(); }
+function closeDialog(id) { if (id !== 'productDialog') { exitShopping(); return; } $(id).close(); syncModalState(); }
 function renderDetail(id) {
   const item = findItem(id);
   if (!item) return;
@@ -601,6 +658,7 @@ function resetShipping() {
   $('shippingSummary').textContent = '';
   $('formErrors').textContent = '';
   $('sampleStatus').textContent = '';
+  $('optionalNotes').open = false;
 }
 function setCheckoutStep(step, focus = true) {
   const review = step === 'review';
@@ -612,7 +670,8 @@ function setCheckoutStep(step, focus = true) {
   $('stepDelivery').setAttribute('aria-current', review ? 'false' : 'step');
   $('stepReview').setAttribute('aria-current', review ? 'step' : 'false');
   if (focus) $(review ? 'reviewTitle' : 'shippingTitle').focus();
-  $('checkoutDialog').scrollTop = 0;
+  if (activeShoppingId === 'checkoutDialog') shoppingRoute(review ? 'review' : 'delivery');
+  if (typeof window !== 'undefined') window.scrollTo({top:0, behavior:'instant'});
 }
 function renderShippingSummary() {
   if (!shippingDetails) return;
@@ -630,12 +689,12 @@ $('shippingForm').addEventListener('submit', event => {
   }
   const invalid = Object.keys(errors);
   $('formErrors').textContent = invalid.length ? t('formError') : '';
-  if (invalid.length) { $(invalid[0]).focus(); return; }
+  if (invalid.length) { if (errors.deliveryNotes) $('optionalNotes').open = true; $(invalid[0]).focus(); return; }
   shippingDetails = values; renderShippingSummary(); renderOrder(); setCheckoutStep('review');
 });
-for (const id of shippingFields) $(id).addEventListener('input', () => { clearFieldError(id); $('sampleStatus').textContent = ''; renderShippingErrors(); });
+for (const id of shippingFields) $(id).addEventListener('input', () => { clearFieldError(id); $('sampleStatus').textContent = ''; shippingDetails = null; renderShippingErrors(); });
 $('backDelivery').addEventListener('click', () => setCheckoutStep('delivery'));
-$('backBag').addEventListener('click', () => { closeDialog('checkoutDialog'); openDialog('cartDialog'); });
+$('backBag').addEventListener('click', () => { editingBag = true; showShopping('cartDialog'); $('bagStatus').textContent = t('bagSaved'); $('bagTitle').focus(); });
 $('useSample').addEventListener('click', () => {
   // Deliberately fictional, explicitly labelled sample data; never a real recipient.
   const sample = {recipient:'Demo Guest',phone:'010-0000-0000',orderEmail:'demo@example.com',postcode:'01234',district:'Gangbuk-gu',street:'123 Example-ro',unit:'Demo building, 502-ho',deliveryNotes:''};
@@ -672,8 +731,8 @@ document.addEventListener('click', event => {
     cart[id] = (cart[id] || 0) + 1;
     saveCart();
     if ($('productDialog').open) closeDialog('productDialog');
-    if (findItem(id).included) openDialog('cartDialog');
-    else toast(t('added'));
+    if (findItem(id).included) { openDialog('cartDialog'); $('bagTitle').focus(); }
+    else toast(`${t('itemAdded')}: ${itemName(findItem(id))}`);
   }
   const detail = event.target.closest('[data-detail]');
   if (detail) { renderDetail(detail.dataset.detail); openDialog('productDialog'); }
@@ -691,6 +750,7 @@ document.addEventListener('click', event => {
     const selector = quantity ? `[data-qty="${id}"][data-delta="${quantity.dataset.delta}"]:not(:disabled)` : `[data-remove="${id}"]`;
     (document.querySelector(selector) || document.querySelector(`[data-qty="${id}"]:not(:disabled)`) || document.querySelector('[data-qty]') || document.querySelector('[data-explore]') || $('checkoutBtn')).focus();
     if (!cart[id]) toast(t('removed'));
+    else $('bagStatus').textContent = `${t('quantityUpdated')}: ${itemName(findItem(id))} × ${cart[id]} · ${won(total())}`;
   }
   const close = event.target.closest('[data-close]');
   if (close) closeDialog(close.dataset.close);
@@ -700,11 +760,11 @@ document.addEventListener('click', event => {
 });
 $('sortSelect').addEventListener('change', event => { sort = event.target.value; renderProducts(); });
 $('langBtn').addEventListener('click', () => { lang = lang === 'en' ? 'ko' : 'en'; storage.set('veroLang', lang); translate(); });
-$('cartBtn').addEventListener('click', () => openDialog('cartDialog'));
+$('cartBtn').addEventListener('click', () => { if (activeShoppingId === 'checkoutDialog') editingBag = true; openDialog('cartDialog'); $('bagTitle').focus(); });
 $('checkoutBtn').addEventListener('click', () => {
   if (!entries().length) return;
-  closeDialog('cartDialog');
-  resetShipping();
+  if (!editingBag) resetShipping();
+  editingBag = false;
   $('checkoutFormWrap').hidden = false; $('success').hidden = true;
   renderOrder(); setCheckoutStep('delivery', false); openDialog('checkoutDialog');
   $('recipient').focus();
@@ -715,17 +775,17 @@ $('placeOrder').addEventListener('click', () => {
   $('checkoutFormWrap').hidden = true; $('success').hidden = false;
   $('checkoutDialog').setAttribute('aria-labelledby','successTitle');
   $('checkoutDialog').setAttribute('aria-describedby','successDescription');
-  $('continueBtn').focus();
+  shoppingRoute('complete');
+  $('successTitle').focus();
 });
 $('continueBtn').addEventListener('click', () => { closeDialog('checkoutDialog'); $('cartBtn').focus(); });
 $('newsletterForm').addEventListener('submit', event => { event.preventDefault(); $('newsletterMsg').textContent = t('thanks'); event.target.reset(); });
 document.querySelectorAll('dialog').forEach(dialog => {
   dialog.addEventListener('close', () => {
     syncModalState();
-    // Native close events are queued: an old event must not clear a newly reopened checkout.
+    // A queued product-dialog close must not steal focus from a shopping page.
     if (dialog.open) return;
-    if (dialog.id === 'checkoutDialog') resetShipping();
-    if (!document.querySelector('dialog[open]') &&
+    if (!activeShoppingId && !document.querySelector('dialog[open]') &&
         (!document.activeElement || document.activeElement === document.body ||
          document.activeElement.isConnected === false || dialog.contains?.(document.activeElement))) restoreDialogFocus(dialog.id);
   });
@@ -735,6 +795,21 @@ document.querySelectorAll('dialog').forEach(dialog => {
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeDialog(dialog.id);
   });
 });
+if (typeof window !== 'undefined') {
+  window.addEventListener('popstate', () => {
+    const route = location.hash;
+    if (!activeShoppingId) { if (route.startsWith('#shop-')) shoppingRoute(null, true); return; }
+    if (!$('success').hidden && route !== '#shop-complete') { exitShopping(false); shoppingRoute(null, true); return; }
+    if (route === '#shop-complete' && !$('success').hidden) return;
+    if (route === '#shop-bag') { editingBag = true; showShopping('cartDialog', false); $('bagTitle').focus(); }
+    else if (route === '#shop-delivery' || (route === '#shop-review' && shippingDetails)) {
+      showShopping('checkoutDialog', false); setCheckoutStep(route === '#shop-review' ? 'review' : 'delivery');
+    } else { exitShopping(false); shoppingRoute(null, true); }
+  });
+  document.querySelectorAll('.brand, #mainNav a').forEach(link => link.addEventListener('click', () => { if (activeShoppingId) exitShopping(); }));
+  // A reload never reconstructs personal fields or an in-progress checkout from a URL.
+  if (location.hash.startsWith('#shop-')) shoppingRoute(null, true);
+}
 translate();
 document.querySelector('.catalog-tools').hidden = false;
 for (const id of ['langBtn', 'cartBtn', 'menuBtn']) $(id).disabled = false;
