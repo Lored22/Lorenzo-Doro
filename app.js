@@ -4,8 +4,8 @@ const products = [
     "id": "sauce",
     "name": "Black Truffle Sauce",
     "ko": "블랙 트러플 소스",
-    "desc": "A deep, earthy finish for pasta, eggs and warm bread. 90g.",
-    "descKo": "파스타, 달걀, 따뜻한 빵에 깊고 풍부한 향을 더합니다. 90g.",
+    "desc": "Truffle sauce for pasta, eggs or warm bread. Stir into a dish or serve as a spread. 90g.",
+    "descKo": "파스타, 달걀, 따뜻한 빵에 곁들이는 트러플 소스. 요리에 섞거나 빵에 발라 즐겨보세요. 90g.",
     "price": 18900,
     "badge": "Hero ingredient",
     "badgeKo": "시그니처",
@@ -16,8 +16,8 @@ const products = [
     "id": "honey",
     "name": "Truffle Acacia Honey",
     "ko": "트러플 아카시아 꿀",
-    "desc": "Floral sweetness with a savoury truffle edge. 100g.",
-    "descKo": "꽃향의 달콤함과 트러플의 감칠맛이 만납니다. 100g.",
+    "desc": "Acacia honey with truffle. Drizzle over cheese or toast for a sweet and savoury finish. 100g.",
+    "descKo": "트러플을 더한 아카시아 꿀. 치즈나 토스트에 뿌려 달콤한 맛과 감칠맛을 즐겨보세요. 100g.",
     "price": 22900,
     "category": "truffle",
     "label": "MIELE"
@@ -26,8 +26,8 @@ const products = [
     "id": "salt",
     "name": "Black Truffle Salt",
     "ko": "블랙 트러플 소금",
-    "desc": "The effortless final touch for risotto, fries and steak. 60g.",
-    "descKo": "리소토, 감자튀김, 스테이크를 위한 간편한 마무리. 60g.",
+    "desc": "Salt with black truffle. Sprinkle over potatoes, eggs or risotto just before serving. 60g.",
+    "descKo": "블랙 트러플을 더한 소금. 감자, 달걀 요리, 리소토에 먹기 직전 살짝 뿌려주세요. 60g.",
     "price": 14900,
     "category": "truffle",
     "label": "SALE"
@@ -36,18 +36,18 @@ const products = [
     "id": "pasta",
     "name": "Bronze-cut Tagliatelle",
     "ko": "브론즈컷 탈리아텔레",
-    "desc": "Slow-dried artisan pasta with a sauce-loving texture. 500g.",
-    "descKo": "소스가 잘 배는 식감의 저온 건조 수제 파스타. 500g.",
+    "desc": "Tagliatelle with a textured surface that holds sauce. Pair with truffle sauce for a simple dinner. 500g.",
+    "descKo": "소스가 잘 묻는 표면의 탈리아텔레. 트러플 소스와 함께 간편한 저녁을 준비해 보세요. 500g.",
     "price": 9900,
     "category": "table",
     "label": "PASTA"
   },
   {
     "id": "taralli",
-    "name": "EVOO Taralli",
+    "name": "Olive Oil Taralli",
     "ko": "엑스트라 버진 올리브오일 타랄리",
-    "desc": "A crisp Puglian aperitivo companion. 250g.",
-    "descKo": "아페리티보에 어울리는 바삭한 풀리아식 스낵. 250g.",
+    "desc": "Crunchy Italian olive-oil crackers. Enjoy on their own or share with cheese before dinner. 250g.",
+    "descKo": "바삭한 이탈리안 올리브오일 스낵. 그대로 먹거나 식사 전 치즈와 함께 나눠 즐겨보세요. 250g.",
     "price": 7900,
     "category": "table",
     "label": "TARALLI"
@@ -56,11 +56,21 @@ const products = [
     "id": "balsamic",
     "name": "Aged Balsamic Condiment",
     "ko": "숙성 발사믹 콘디멘토",
-    "desc": "Velvety, balanced and made for finishing. 100ml.",
-    "descKo": "부드럽고 균형 잡힌 풍미의 피니싱 콘디멘토. 100ml.",
+    "desc": "A sweet and tangy balsamic condiment. Drizzle over salads, roasted vegetables or cheese. 100ml.",
+    "descKo": "달콤하고 새콤한 발사믹 콘디멘토. 샐러드, 구운 채소, 치즈에 조금씩 곁들여보세요. 100ml.",
     "price": 19900,
     "category": "table",
     "label": "BALSAMICO"
+  },
+  {
+    "id": "cruschi",
+    "name": "Peperoni Cruschi",
+    "ko": "페페로니 크루스키",
+    "desc": "Ready-to-eat crunchy sweet peppers. Enjoy as a snack or crumble over pasta and salads. Proposed 25g pack.",
+    "descKo": "바로 먹는 바삭한 스위트 페퍼 스낵. 그대로 즐기거나 파스타와 샐러드 위에 부숴 뿌려보세요. 제안 용량 25g.",
+    "price": 9900,
+    "category": "table",
+    "label": "CRUSCHI"
   }
 ];
 
@@ -69,8 +79,8 @@ const boxes = [
     "id": "discovery",
     "name": "Discovery Box",
     "ko": "디스커버리 박스",
-    "desc": "Truffle sauce + artisan pasta. Your first Italian night.",
-    "descKo": "트러플 소스 + 수제 파스타. 첫 번째 이탈리안 나이트.",
+    "desc": "Truffle sauce and tagliatelle: two products for a simple pasta dinner.",
+    "descKo": "트러플 소스와 탈리아텔레, 간편한 파스타 저녁을 위한 2종 구성.",
     "price": 44900,
     "badge": "For two",
     "badgeKo": "2인용",
@@ -84,8 +94,8 @@ const boxes = [
     "id": "date",
     "name": "Italian Date Night",
     "ko": "이탈리안 데이트 나이트",
-    "desc": "Five pieces for pasta, aperitivo and a sweet finish.",
-    "descKo": "파스타, 아페리티보, 달콤한 마무리를 위한 5종 구성.",
+    "desc": "Five products for pasta, a crunchy snack and honey to pair with cheese.",
+    "descKo": "파스타, 바삭한 스낵, 치즈에 곁들일 꿀을 담은 5종 구성.",
     "price": 74900,
     "badge": "For an occasion",
     "badgeKo": "특별한 날",
@@ -102,11 +112,11 @@ const boxes = [
     "id": "signature",
     "name": "Signature Gift Box",
     "ko": "시그니처 기프트 박스",
-    "desc": "The complete six-piece Vero Seoul table.",
-    "descKo": "베로 서울의 6가지 셀렉션을 모두 담은 완벽한 테이블.",
+    "desc": "Six favourites for a generous table: pasta, truffle sauce, honey, salt, taralli and balsamic.",
+    "descKo": "풍성한 테이블을 위한 6종 구성: 파스타, 트러플 소스, 꿀, 소금, 타랄리, 발사믹.",
     "price": 94900,
-    "badge": "The full ritual",
-    "badgeKo": "풀 컬렉션",
+    "badge": "For sharing",
+    "badgeKo": "함께 즐기는 구성",
     "included": [
       "sauce",
       "honey",
@@ -137,7 +147,7 @@ const copy = {
     "pillar1Title": "Origin matters",
     "pillar1Text": "Regional stories guide our sourcing. Producers are still to be confirmed.",
     "pillar2Title": "Only the essentials",
-    "pillar2Text": "Six ingredients, chosen to work beautifully together.",
+    "pillar2Text": "Seven products, with simple ways to enjoy them.",
     "pillar3Title": "An evening to give",
     "pillar3Text": "Gift-box concepts for a first taste, a date night or a generous table.",
     "boxesEyebrow": "01 / The collection",
@@ -150,7 +160,7 @@ const copy = {
     "step3": "Finish with truffle salt. Put the phones away.",
     "pantryEyebrow": "02 / The essentials",
     "pantryTitle": "Prefer to choose separately?",
-    "pantryText": "Explore the six individual products. You can add them to the same demo bag.",
+    "pantryText": "Explore seven individual products. Add your favourites to the same demo bag.",
     "storyEyebrow": "Italy → Seoul",
     "storyTitle": "Two places.<br>One shared table.",
     "storyText": "Vero Seoul is an idea for bringing regional Italian specialities to curious Korean tables. Origin, flavour and the pleasure of sharing guide the concept. The collection is a starting point for conversations with future partners.",
@@ -204,7 +214,7 @@ const copy = {
     "decrease": "Decrease quantity",
     "bagNote": "Check the contents and quantities. Next: delivery details, then review. No real payment or shipment.",
     "checkoutNote": "Delivery simulation only. Use fictional details. They stay in memory while you edit your bag and delivery details, and are cleared when you leave or finish the shopping journey.",
-    "all": "All six",
+    "all": "All products",
     "truffle": "Truffle",
     "table": "For the table",
     "sortLabel": "Sort by",
@@ -217,7 +227,7 @@ const copy = {
     "faq1": "Can I place a real order?",
     "answer1": "Not yet. This is a partner preview: products, packaging and prices are illustrative. The bag and checkout let you explore the experience without making a purchase.",
     "faq2": "What is inside each gift box?",
-    "answer2": "Discovery pairs truffle sauce and tagliatelle. Date Night adds honey, salt and taralli. Signature includes all six pantry pieces. Open a box to see its full selection.",
+    "answer2": "Discovery includes truffle sauce and tagliatelle. Date Night adds honey, truffle salt and taralli. Signature also includes balsamic. Peperoni Cruschi are sold separately in this preview and are not included in the boxes.",
     "faq3": "Are delivery and imports confirmed?",
     "answer3": "No. Suppliers, Korean import requirements, final labels and delivery arrangements must be confirmed before a commercial launch.",
     "faq4": "What happens to my data?",
@@ -309,7 +319,7 @@ const copy = {
     "pillar1Title": "원산지의 이야기",
     "pillar1Text": "지역의 이야기를 바탕으로 생산자를 찾아갈 예정입니다.",
     "pillar2Title": "꼭 필요한 것만",
-    "pillar2Text": "서로 잘 어울리는 여섯 가지 재료로 구성했습니다.",
+    "pillar2Text": "간편하게 즐기는 일곱 가지 제품.",
     "pillar3Title": "저녁을 선물하다",
     "pillar3Text": "첫 만남, 데이트 나이트, 풍성한 테이블을 위한 기프트 박스 콘셉트.",
     "boxesEyebrow": "01 / 컬렉션",
@@ -322,7 +332,7 @@ const copy = {
     "step3": "트러플 소금으로 마무리하고, 휴대폰은 잠시 내려놓으세요.",
     "pantryEyebrow": "02 / 에센셜",
     "pantryTitle": "하나씩 고르고 싶으신가요?",
-    "pantryText": "개별 제품 6종을 살펴보세요. 같은 데모 장바구니에 담을 수 있습니다.",
+    "pantryText": "개별 제품 7종을 살펴보세요. 마음에 드는 제품을 같은 데모 장바구니에 담을 수 있습니다.",
     "storyEyebrow": "이탈리아 → 서울",
     "storyTitle": "두 도시의 감성.<br>하나의 테이블.",
     "storyText": "베로 서울은 이탈리아 지역 특산품을 한국의 호기심 많은 테이블에 소개하기 위한 아이디어입니다. 원산지, 맛, 함께 나누는 즐거움을 중심으로 미래의 파트너들과 대화를 시작하고자 합니다.",
@@ -376,7 +386,7 @@ const copy = {
     "decrease": "수량 줄이기",
     "bagNote": "구성과 수량을 확인해 주세요. 다음은 배송 정보 입력과 최종 확인입니다. 실제 결제나 배송은 없습니다.",
     "checkoutNote": "배송 정보 입력 데모입니다. 가상 정보를 사용해 주세요. 장바구니와 배송 정보를 수정하는 동안 메모리에만 유지되며, 쇼핑 과정을 나가거나 완료하면 삭제됩니다.",
-    "all": "전체",
+    "all": "전체 제품",
     "truffle": "트러플",
     "table": "테이블을 위해",
     "sortLabel": "정렬",
@@ -389,7 +399,7 @@ const copy = {
     "faq1": "실제로 주문할 수 있나요?",
     "answer1": "아직은 불가합니다. 제품, 패키지 및 가격은 파트너 프리뷰를 위한 예시입니다. 장바구니와 주문 확인은 실제 구매 없이 체험할 수 있습니다.",
     "faq2": "기프트 박스는 어떻게 구성되나요?",
-    "answer2": "디스커버리는 트러플 소스와 탈리아텔레, 데이트 나이트는 여기에 꿀, 소금, 타랄리를 더한 구성입니다. 시그니처에는 여섯 가지 제품이 모두 포함됩니다. 각 박스의 상세 보기를 확인해 주세요.",
+    "answer2": "디스커버리는 트러플 소스와 탈리아텔레, 데이트 나이트는 여기에 꿀, 트러플 소금, 타랄리를 더한 구성입니다. 시그니처에는 발사믹도 포함됩니다. 페페로니 크루스키는 이 프리뷰에서 개별 제품으로만 판매되며 박스에는 포함되지 않습니다.",
     "faq3": "배송과 수입 절차가 확정되었나요?",
     "answer3": "아닙니다. 공급업체, 한국 수입 요건, 최종 라벨 및 배송 방식은 정식 출시 전에 확정해야 합니다.",
     "faq4": "개인정보는 어떻게 처리되나요?",
@@ -466,14 +476,15 @@ const copy = {
   }
 };
 
+
 const pageMetadata = {
   "en": {
     "title": "Vero Seoul — Italian gourmet concept | Partner preview",
-    "description": "Explore Vero Seoul, an Italian gourmet concept for Korea: six pantry products and three gift boxes. Partner preview only; no real purchases."
+    "description": "Explore Vero Seoul, an Italian gourmet concept for Korea: seven pantry products and three gift boxes. Partner preview only; no real purchases."
   },
   "ko": {
     "title": "Vero Seoul — 이탈리안 고메 브랜드 콘셉트 | 파트너 프리뷰",
-    "description": "한국을 위한 이탈리안 고메 브랜드 콘셉트, 베로 서울을 만나보세요. 팬트리 제품 6종과 기프트 박스 3종을 소개하는 파트너 프리뷰로, 실제 구매는 불가합니다."
+    "description": "한국을 위한 이탈리안 고메 브랜드 콘셉트, 베로 서울을 만나보세요. 팬트리 제품 7종과 기프트 박스 3종을 소개하는 파트너 프리뷰로, 실제 구매는 불가합니다."
   }
 };
 
@@ -505,7 +516,7 @@ const itemDescription = item => lang === 'ko' ? item.descKo : item.desc;
 const entries = () => Object.entries(cart).map(([id, quantity]) => ({item: findItem(id), quantity}));
 const total = () => entries().reduce((sum, {item, quantity}) => sum + item.price * quantity, 0);
 function packaging(item, interactive = false) {
-  const shape = item.included ? 'gift' : item.id === 'balsamic' ? 'bottle' : ['pasta','taralli'].includes(item.id) ? 'bag' : 'jar';
+  const shape = item.included ? 'gift' : item.id === 'balsamic' ? 'bottle' : ['pasta','taralli','cruschi'].includes(item.id) ? 'bag' : 'jar';
   const tag = interactive ? 'button' : 'div';
   const attrs = interactive ? `type="button" data-detail="${item.id}" aria-label="${escapeHTML(t('details') + ': ' + itemName(item))}"` : 'aria-hidden="true"';
   return `<${tag} class="product-visual ${interactive ? 'visual-button' : ''}" data-product="${item.id}" ${attrs}>

@@ -70,7 +70,7 @@ test('filter and sort show the correct subset and price order',()=>{
  assert(markup.indexOf('data-product="salt"')<markup.indexOf('data-product="sauce"'));
  assert(markup.indexOf('data-product="sauce"')<markup.indexOf('data-product="honey"'));
  assert(!markup.includes('data-product="pasta"'));
- app.run("filter='all';sort='priceHigh';renderProducts()");assert.equal((app.element('productGrid').innerHTML.match(/<article/g)||[]).length,6);
+ app.run("filter='all';sort='priceHigh';renderProducts()");assert.equal((app.element('productGrid').innerHTML.match(/<article/g)||[]).length,7);
 });
 test('product details list actual box contents, localized names and sample-price notice',()=>{
  const app=boot({veroLang:'ko'});app.run("renderDetail('discovery')");
@@ -103,10 +103,10 @@ test('newsletter is local-only and mobile menu exposes its state',()=>{
  app.element('menuBtn').listeners.click();assert.equal(app.element('menuBtn').getAttribute('aria-expanded'),'true');
  app.document.listeners.keydown({key:'Escape'});assert.equal(app.element('menuBtn').getAttribute('aria-expanded'),'false');
 });
-test('static page includes nine readable products, bilingual copy coverage and no live-shop promises',()=>{
+test('static page includes ten readable catalogue cards, bilingual copy coverage and no live-shop promises',()=>{
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
  assert.equal((html.match(/name="description"/g)||[]).length,1);
- assert.equal((html.match(/class="product-card"/g)||[]).length,9);
+ assert.equal((html.match(/class="product-card"/g)||[]).length,10);
  assert(!html.includes('150 boxes'));assert(!html.includes('Complimentary Seoul delivery'));
  const app=boot();for(const match of html.matchAll(/data-i18n(?:-aria|-alt)?="([^"]+)"/g)){
    assert.equal(app.run(`typeof copy.en[${JSON.stringify(match[1])}]`),'string');
@@ -272,4 +272,32 @@ test('shopping uses nonmodal page sections and only the product detail is a nati
  assert(app.element('main').hidden);assert(app.element('siteFooter').hidden);assert.equal(app.element('shoppingFlow').hidden,false);
  assert.equal(app.element('skipLink').getAttribute('href'),'#shoppingFlow');
  app.run("closeDialog('cartDialog')");assert.equal(app.element('skipLink').getAttribute('href'),'#main');
+});
+
+test('cruschi are a separately purchasable seventh product; taralli and all box contents are retained',()=>{
+ const app=boot();assert.equal(app.run('products.length'),7);
+ assert.equal(app.run("findItem('cruschi').category"),'table');
+ assert.equal(app.run("JSON.stringify(boxes.map(box=>box.included))"),JSON.stringify([['sauce','pasta'],['sauce','honey','salt','pasta','taralli'],['sauce','honey','salt','pasta','taralli','balsamic']]));
+ for(const lang of ['en','ko']) {
+  app.run(`lang='${lang}';translate();renderDetail('cruschi')`);
+  assert(app.element('productGrid').innerHTML.includes('data-add="cruschi"'));
+  assert(app.element('productGrid').innerHTML.includes('data-add="taralli"'));
+  assert(app.element('productDetail').innerHTML.includes(app.run("findItem('cruschi')[lang==='ko'?'descKo':'desc']")));
+ }
+ app.document.listeners.click({target:{closest:s=>s==='.site-header'?{}:s==='[data-add]'?{dataset:{add:'cruschi'}}:null}});
+ assert.equal(app.run('cart.cruschi'),1);assert.equal(app.run("total()"),app.run("findItem('cruschi').price"));
+ app.element('cartBtn').listeners.click();app.element('checkoutBtn').listeners.click();app.element('useSample').listeners.click();
+ app.element('shippingForm').listeners.submit({preventDefault(){}});assert.match(app.element('orderSummary').innerHTML,/크루스키/);
+ app.element('placeOrder').listeners.click();assert.equal(app.run('total()'),0);
+});
+test('fallback descriptions and prices match every catalogue item; no obsolete six-product claims remain',()=>{
+ const app=boot();
+ for(const item of JSON.parse(app.run('JSON.stringify(allItems)'))) {
+  const article=html.match(new RegExp('<article class="product-card"><button[^>]*data-product="'+item.id+'"[\\s\\S]*?</article>'));
+  assert(article,`Missing fallback for ${item.id}`);
+  assert(article[0].includes(item.desc),`Stale description for ${item.id}`);
+  assert(article[0].includes('₩'+item.price.toLocaleString('ko-KR')),`Stale price for ${item.id}`);
+ }
+ assert(!html.includes('Puglian aperitivo'));assert(!html.includes('six pantry products'));
+ assert.equal(app.run("copy.en.all"),'All products');
 });

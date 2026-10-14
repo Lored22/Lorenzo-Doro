@@ -13,7 +13,7 @@ Open `http://localhost:8080`. There is no build step or runtime dependency.
 ## Experience
 
 - Task-first homepage: concise hero, three comparable boxes, how it works, individual products, FAQ and brand story.
-- Three gift-box concepts with all 2/5/6 contents visible on the cards; six pantry products with category filters and price sorting.
+- Three gift-box concepts with all 2/5/6 contents visible on the cards; seven pantry products with category filters and price sorting.
 - Product details, persistent demo bag, quantity controls and a guided delivery/address, review and confirmation flow.
 - Dedicated nonmodal bag/checkout screens with progress, browser Back support, accessible labels, reduced-motion support and mobile navigation. Only product details use a native modal dialog.
 - English/Korean page copy, metadata, social titles/descriptions, image alternatives and controls.
@@ -64,7 +64,7 @@ Run against the PR head, not the `main` Pages deployment. Record commit, browser
 | Bag/quantities/empty state | app.js renderCart/saveCart | T5 totals, persistence, limit; T16 last removal | Quantity controls keep focus; remove final item; empty state and disabled checkout; reload populated bag. |
 | Delivery/review/edit/complete | app.js validation, step transitions, resetShipping; index.html shippingForm | T9–T12; T14 errors; T18 descriptions; T22–T24 shopping/history simulation | Required-field errors and correction, fictional sample, review/edit, preserved delivery on bag edits, browser Back, collection exit clears details, complete/reopen. No real payable total, payment or shipment. |
 | Blocked/corrupt storage | app.js storage/readCart/sanitizeCart | T2 startup/corrupt/stale data; T13 complete flow with reads/writes throwing | Actually deny reads and writes, then language/bag/checkout; no crash. Reload persistence is not expected while blocked. Incognito alone is not this test. |
-| No JavaScript | index.html static catalogue; styles.css html:not(.js) | T7 nine static cards; T8 IDs/anchors/assets; T17 newsletter guard | Reload with JS disabled at all widths; readable English catalogue, visible section navigation, working FAQ/anchors, disabled demo controls. |
+| No JavaScript | index.html static catalogue; styles.css html:not(.js) | T7 ten static cards; T8 IDs/anchors/assets; T17 newsletter guard | Reload with JS disabled at all widths; readable English catalogue, visible section navigation, working FAQ/anchors, disabled demo controls. |
 | Assistive technology | labels, live regions, CSS focus/reduced-motion/forced-colors | T20 reference integrity; T18 active description; CSS declarations inspected only | **NOT RUN:** screen-reader names/announcements on delivery, review, errors and completion; visible focus, reduced motion and forced colors in a real browser. |
 | Network behavior | app.js submit handlers/storage; index.html forms/fonts | T6 handler simulation; T8 form markup; T11–T12 storage adapter; T17 fallback guard | **NOT RUN:** DevTools Network with Preserve log through newsletter and full checkout. Verify no navigation or outbound request carrying fictional form details; separately record initial asset and Google Fonts requests and blocked-font fallback. |
 
@@ -105,3 +105,12 @@ Browser/AT results have intentionally not been promoted to PASS. Keep the PR ope
 Local evidence: **PASS** JS syntax; **PASS** 24/24 Node tests; **PASS** whitespace/diff check. T21 covers visible box contents/section order, T22 delivery preservation and clearing, T23 simulated browser Back and T24 nonmodal page/skip-link state. The adapter's dialog inventory now matches the single native product dialog. These simulations still do not constitute real-browser acceptance.
 
 **NOT RUN:** all real-browser/AT/network rows above on the new UX, including 360/768/1440 × EN/KO, native product dialog, browser history/scroll/focus, forced colors and actual outbound traffic. Keep PR #1 in draft pending that review. No merge or GitHub Pages deployment is performed by this update; the separate review preview must be built from the matching runtime files.
+
+
+## Catalogue copy and seventh product — 2026-10-14
+
+Keep taralli and the existing 2/5/6 box contents. Add Peperoni Cruschi as a seventh standalone product, with a distinct pepper pouch illustration and EN/KO descriptions explaining snack/topping uses. The proposed ready-to-eat 25g format and ₩9,900 sample price are concept placeholders, not a supplier quote, confirmed recipe or commercial price. No calzoncelli are added.
+
+Rewrite every product description around what it is and how to use it. Taralli now use the clear English name “Olive Oil Taralli” and explain the crunchy snack/cheese pairing instead of “Puglian aperitivo companion”. Box descriptions, card contents, FAQ, metadata and filters reflect seven individual products without suggesting that cruschi are included in a box.
+
+Local validation: JS syntax, 26/26 Node tests and diff check pass. T25 verifies cruschi purchase/checkout in the adapter, retained taralli and unchanged boxes; T26 verifies fallback descriptions/prices against the catalogue. Browser/AT/network acceptance remains NOT RUN for this updated catalogue.

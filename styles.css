@@ -1932,3 +1932,9 @@ dialog { overflow-y:auto; }
   .shopping-flow .checkout-progress li { font-size:12px; }
   .shopping-flow .cart-line { grid-template-columns:minmax(0,1fr) auto; gap:10px; }
 }
+
+/* Seventh pantry concept: a distinct ready-to-eat pepper pouch. */
+[data-product="cruschi"] { background:#efe3d8; }
+[data-product="cruschi"] .package.bag { background:#8b352b; color:#fff4e6; border-color:#66251f; }
+[data-product="cruschi"] .package.bag strong { font-size:18px; letter-spacing:.05em; }
+@media(max-width:540px) { .pantry [data-product="cruschi"] .package.bag strong { font-size:10px; } }
