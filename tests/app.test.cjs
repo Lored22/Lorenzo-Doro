@@ -188,3 +188,40 @@ test('removing the last item disables checkout and restores the empty bag',()=>{
  assert.match(app.element('cartItems').innerHTML,/Your evening starts here/);
  app.element('checkoutBtn').listeners.click();assert(!app.element('checkoutDialog').open);
 });
+test('newsletter fallback cannot collect input; script enables it with a local submit handler',()=>{
+ const form=html.match(/<form\b[^>]*id="newsletterForm"[^>]*>/)[0];
+ const input=html.match(/<input\b[^>]*id="email"[^>]*>/)[0];
+ assert.match(form,/method="dialog"/);
+ assert.match(input,/\bdisabled\b/);
+ const app=boot();assert.equal(app.element('email').disabled,false);
+ assert.equal(typeof app.element('newsletterForm').listeners.submit,'function');
+});
+test('checkout description follows delivery, review and success, including reopening',()=>{
+ const app=boot();app.run('cart={date:1}');app.element('checkoutBtn').listeners.click();
+ assert.equal(app.element('checkoutDialog').getAttribute('aria-describedby'),'checkoutNotice');
+ app.element('useSample').listeners.click();app.element('shippingForm').listeners.submit({preventDefault(){}});
+ assert.equal(app.element('checkoutDialog').getAttribute('aria-describedby'),'checkoutNotice');
+ app.element('placeOrder').listeners.click();
+ assert.equal(app.element('checkoutDialog').getAttribute('aria-describedby'),'successDescription');
+ assert.match(html,/<p id="successDescription" data-i18n="successText">/);
+ app.run("closeDialog('checkoutDialog');cart={date:1}");app.element('checkoutBtn').listeners.click();
+ assert.equal(app.element('checkoutDialog').getAttribute('aria-describedby'),'checkoutNotice');
+});
+test('fictional-sample feedback localizes while present and stays clear after input',()=>{
+ const app=boot();app.element('useSample').listeners.click();app.element('langBtn').listeners.click();
+ assert.equal(app.element('sampleStatus').textContent,app.run('copy.ko.sampleFilled'));
+ app.element('recipient').listeners.input();app.element('langBtn').listeners.click();
+ assert.equal(app.element('sampleStatus').textContent,'');
+});
+test('translation dictionaries and static label/ARIA references are complete',()=>{
+ const app=boot();
+ assert.equal(app.run('JSON.stringify(Object.keys(copy.en).sort())'),app.run('JSON.stringify(Object.keys(copy.ko).sort())'));
+ const ids=new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
+ for(const [,value] of html.matchAll(/\b(?:for|aria-labelledby|aria-describedby|aria-controls)="([^"]+)"/g)) {
+  for(const id of value.split(/\s+/)) {
+   if(id==='detailTitle') {
+    for(const lang of ['en','ko']) { app.run(`lang='${lang}';renderDetail('discovery')`);assert.match(app.element('productDetail').innerHTML,/id="detailTitle"/); }
+   } else assert(ids.has(id),`Missing label/ARIA target ${id}`);
+  }
+ }
+});

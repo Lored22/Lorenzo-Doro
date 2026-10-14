@@ -559,6 +559,7 @@ function translate() {
   if (detailId) renderDetail(detailId);
   if ($('checkoutDialog').open) { renderOrder(); if (shippingDetails) renderShippingSummary(); }
   $('newsletterMsg').textContent = '';
+  if ($('sampleStatus').textContent) $('sampleStatus').textContent = t('sampleFilled');
   renderShippingErrors();
 }
 function closeMenu() { $('mainNav').classList.remove('open'); $('menuBtn').setAttribute('aria-expanded', 'false'); }
@@ -607,6 +608,7 @@ function setCheckoutStep(step, focus = true) {
   $('reviewStep').hidden = !review;
   document.querySelector('.checkout-layout').classList.toggle('reviewing', review);
   $('checkoutDialog').setAttribute('aria-labelledby', review ? 'reviewTitle' : 'shippingTitle');
+  $('checkoutDialog').setAttribute('aria-describedby', 'checkoutNotice');
   $('stepDelivery').setAttribute('aria-current', review ? 'false' : 'step');
   $('stepReview').setAttribute('aria-current', review ? 'step' : 'false');
   if (focus) $(review ? 'reviewTitle' : 'shippingTitle').focus();
@@ -712,6 +714,7 @@ $('placeOrder').addEventListener('click', () => {
   cart = {}; saveCart(); resetShipping();
   $('checkoutFormWrap').hidden = true; $('success').hidden = false;
   $('checkoutDialog').setAttribute('aria-labelledby','successTitle');
+  $('checkoutDialog').setAttribute('aria-describedby','successDescription');
   $('continueBtn').focus();
 });
 $('continueBtn').addEventListener('click', () => { closeDialog('checkoutDialog'); $('cartBtn').focus(); });
@@ -735,6 +738,7 @@ document.querySelectorAll('dialog').forEach(dialog => {
 translate();
 document.querySelector('.catalog-tools').hidden = false;
 for (const id of ['langBtn', 'cartBtn', 'menuBtn']) $(id).disabled = false;
+$('email').disabled = false;
 document.querySelector('#newsletterForm button').disabled = false;
 // No-JS visitors retain readable catalogue content; interactive controls need this script.
 document.documentElement.classList.add('js');
