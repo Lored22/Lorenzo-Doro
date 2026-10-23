@@ -41,7 +41,7 @@ const server = http.createServer((req,res) => {
         assert.equal(await page.locator('#quickBag').isVisible(),true);
         await page.locator('#quickBag').click();
       } else await page.locator('#cartBtn').click();
-      await page.locator('[data-close="cartDialog"]').click();
+      await page.locator('[data-close="cartDialog"]').first().click();
       await page.locator('[data-add="date"]').click();
       assert.equal(await page.locator('#cartDialog').isVisible(),true);
       await page.locator('#checkoutBtn').click();
