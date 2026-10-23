@@ -118,7 +118,7 @@ test('static IDs are unique, anchor and local asset targets exist, and forms hav
  for(const [,target] of html.matchAll(/href="#([^"]+)"/g)) assert(ids.includes(target),`Missing anchor ${target}`);
  for(const [,target] of html.matchAll(/(?:src|href)="([^"#]+)"/g)) {
    if(/^(https?:|data:)/.test(target)) continue;
-   assert(fs.existsSync(path.join(__dirname,'..',target)),`Missing asset ${target}`);
+   assert(fs.existsSync(path.join(__dirname,'..',target.split('?')[0])),`Missing asset ${target}`);
  }
  assert(!/<form[^>]*action=/.test(html));assert(!/<input[^>]*\bname=/.test(html));
  assert(!html.includes('preview.js'));assert(!html.includes('preview.css'));
@@ -301,3 +301,4 @@ test('fallback descriptions and prices match every catalogue item; no obsolete s
  assert(!html.includes('Puglian aperitivo'));assert(!html.includes('six pantry products'));
  assert.equal(app.run("copy.en.all"),'All products');
 });
+
