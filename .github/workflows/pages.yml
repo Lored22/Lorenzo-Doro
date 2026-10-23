@@ -18,11 +18,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify before publishing
+        run: |
+          node --check app.js
+          node --test tests/app.test.cjs
       - uses: actions/configure-pages@v5
+      - name: Install browser test tools
+        run: |
+          npm install --no-save --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify desktop and mobile shopping
+        run: node tests/browser.cjs
       - name: Prepare website files only
         run: |
           mkdir -p _site
-          cp index.html styles.css app.js preview.css preview.js _site/
+          cp index.html styles.css app.js _site/
           cp -r assets _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
@@ -31,3 +44,4 @@ jobs:
       - name: Publish
         id: deployment
         uses: actions/deploy-pages@v4
+
